@@ -1,0 +1,38 @@
+/* Scoped to this guide so older articles keep their current layout. */
+.planner-article [hidden] { display: none !important; }
+.planner-article .planner-kicker { display: block; margin-bottom: 12px; color: var(--accent); font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.planner-article .article-hero h1 { font-size: clamp(2.15rem, 4.6vw, 3.8rem); line-height: 1.08; margin: 0 0 22px; }
+.planner-article .planner-download { display: grid; grid-template-columns: minmax(140px, .75fr) minmax(0, 1.25fr); gap: 30px; align-items: center; margin: 34px 0 48px; padding: 28px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 24px; }
+.planner-article .planner-download h2 { margin: 0; }
+.planner-article .planner-preview-link { display: block; line-height: 0; border-radius: 5px; box-shadow: 0 12px 28px rgba(49,17,66,.15); }
+.planner-article .planner-preview-link img { width: 100%; border-radius: 5px; }
+.planner-article .planner-small { font-size: .8rem; margin-bottom: 0; }
+.planner-article .article-body a:not(.button):not(.store-badge-link):not(.planner-preview-link) { text-decoration: underline; text-underline-offset: 3px; }
+.planner-article .planner-table-wrap { max-width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: 14px; }
+.planner-article .planner-table { width: 100%; min-width: 530px; border-collapse: collapse; background: var(--surface); font-size: .9rem; }
+.planner-article .planner-table caption { text-align: left; padding: 16px; background: var(--bg-soft); font-weight: 700; }
+.planner-article .planner-table th, .planner-article .planner-table td { padding: 15px; text-align: left; vertical-align: top; border-top: 1px solid var(--border); }
+.planner-article .planner-table thead { background: var(--bg-soft); }
+.planner-article .planner-table th:first-child { width: 24%; }
+.planner-article .planner-table td { width: 38%; color: var(--muted); }
+.planner-article .planner-routine { padding-left: 24px; color: var(--muted); }
+.planner-article .planner-routine li { margin-bottom: 18px; padding-left: 6px; }
+.planner-article .planner-routine strong { color: var(--ink); }
+.planner-article .planner-share { margin-top: 42px; padding-top: 4px; border-top: 1px solid var(--border); }
+.planner-article .planner-share h2 { font-size: 1.6rem; }
+.planner-article .planner-share-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.planner-article .planner-share button { cursor: pointer; font: inherit; }
+.planner-article .planner-share label { display: block; font-size: .85rem; margin-bottom: 6px; }
+.planner-article .planner-share input { width: 100%; min-width: 0; padding: 12px; font: inherit; font-size: .85rem; color: var(--ink); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+.planner-article .planner-share [role="status"]:empty { margin: 0; }
+@media (max-width: 600px) {
+    .planner-article .planner-download { grid-template-columns: 1fr; padding: 22px; gap: 24px; }
+    .planner-article .planner-preview-link { width: 180px; justify-self: center; }
+    .planner-article .planner-download .button { white-space: normal; text-align: center; }
+}
+@media print {
+    .planner-article .planner-share { display: none; }
+    .planner-article .planner-download { break-inside: avoid; }
+    .planner-article .planner-table-wrap { overflow: visible; }
+    .planner-article .planner-table { min-width: 0; }
+}
