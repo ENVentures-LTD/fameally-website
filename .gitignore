@@ -1,2 +1,5 @@
 articles-upcoming/
 .codebase-memory/
+output/review/
+_site/
+node_modules/

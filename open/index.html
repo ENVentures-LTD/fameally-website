@@ -1,6 +1,54 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en-GB">
     <head>
+        <meta name="theme-color" content="#672182" />
+        <meta name="color-scheme" content="light dark" />
+        <meta property="og:title" content="Open Fameally" />
+        <meta
+            property="og:description"
+            content="Open the Fameally app or continue to the Fameally website."
+        />
+        <meta property="og:url" content="https://fameally.com/open" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Fameally" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:image" content="https://fameally.com/assets/fameally-social.jpg" />
+        <meta
+            property="og:image:alt"
+            content="Fameally — meal planning and shared shopping lists, with the weekly planner and shopping list shown in the app."
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Open Fameally" />
+        <meta
+            name="twitter:description"
+            content="Open the Fameally app or continue to the Fameally website."
+        />
+        <meta name="twitter:image" content="https://fameally.com/assets/fameally-social.jpg" />
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "Organization",
+                        "@id": "https://fameally.com/#organization",
+                        "name": "Fameally",
+                        "legalName": "ENVentures LTD",
+                        "url": "https://fameally.com/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://fameally.com/assets/fameally-icon-512.png"
+                        },
+                        "email": "support@fameally.com"
+                    }
+                ]
+            }
+        </script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>﻿
+
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="noindex, follow" />
@@ -17,9 +65,9 @@
         <meta property="og:url" content="https://fameally.com/open" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://fameally.com/open" />
-        <link rel="icon" href="../assets/fameally-icon-512.png" />
+        <link rel="icon" href="../assets/favicon-32.png" />
         <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
-        <link rel="stylesheet" href="../styles.css?v=20260919-contrast-2" />
+        <link rel="stylesheet" href="../styles.css?v=20260927" />
         <style>
             .open-main {
                 min-height: calc(100vh - 150px);
@@ -57,48 +105,51 @@
                 font-size: 0.95rem;
             }
         </style>
-    </head>
-    <body>
+
         <header class="site-header">
             <div class="container">
-                <nav class="topbar" aria-label="Primary">
-                    <a class="brand" href="../index.html" aria-label="Fameally home">
-                        <img
-                            class="brand-mark brand-icon"
-                            src="../assets/fameally-icon-512.png"
+                <nav class="topbar" aria-label="Primary navigation">
+                    <a class="brand" href="../index.html" aria-label="Fameally home"
+                        ><img
+                            class="brand-icon"
+                            src="../assets/fameally-mark.webp"
                             alt=""
-                            width="44"
-                            height="44"
-                        />
-                        <span>Fameally</span>
-                    </a>
-                    <div class="nav-links">
-                        <a href="../index.html">Home</a>
-                        <a href="../index.html#features">Features</a>
-                        <a href="../articles/index.html">Articles</a>
-                        <a href="../index.html#pricing">Pricing</a>
-                        <a href="../index.html#download">Download</a>
-                        <a href="../support.html">Support</a>
-                        <a href="../legal.html">Legal</a>
+                            width="40"
+                            height="40"
+                        /><span>Fameally</span></a
+                    ><button
+                        class="menu-toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="primary-links"
+                        hidden=""
+                    >
+                        Menu <span aria-hidden="true">☰</span>
+                    </button>
+                    <div class="nav-links" id="primary-links">
+                        <a href="../index.html#how-it-works">Product</a
+                        ><a href="../index.html#pricing">Pricing</a
+                        ><a href="../articles/index.html">Guides</a
+                        ><a href="../support.html">Support</a
+                        ><a class="button button-primary button-small" href="../index.html#download"
+                            >Get Fameally</a
+                        >
                     </div>
                 </nav>
             </div>
         </header>
 
-        <main class="open-main">
+        <main class="open-main" id="main">
             <section class="container">
                 <div class="card open-card">
                     <span class="section-label">Fameally app</span>
                     <h1>Open Fameally</h1>
                     <p>
-                        If Fameally is installed, this link should open the app
-                        automatically. You can also use the button below to try
-                        again.
+                        If Fameally is installed, this link should open the app automatically. You
+                        can also use the button below to try again.
                     </p>
                     <div class="open-actions">
-                        <a class="button button-primary" href="fameally://"
-                            >Open app</a
-                        >
+                        <a class="button button-primary" href="fameally://">Open app</a>
                         <a
                             class="button button-secondary"
                             href="https://apps.apple.com/gb/app/fameally-meal-planner/id6761440482"
@@ -109,31 +160,54 @@
                             href="https://play.google.com/store/apps/details?id=com.edwardnickless.fameally"
                             >Get Android app</a
                         >
-                        <a class="button button-secondary" href="../"
-                            >Continue to website</a
-                        >
+                        <a class="button button-secondary" href="../">Continue to website</a>
                     </div>
                     <p class="open-note">
-                        If Fameally is not installed, use the App Store or
-                        Google Play link for your device.
+                        If Fameally is not installed, use the App Store or Google Play link for your
+                        device.
                     </p>
                 </div>
             </section>
         </main>
 
         <footer>
-            <div class="container footer-grid small">
-                <div>&copy; 2026 ENVentures LTD. All rights reserved.</div>
+            <div class="container footer-main">
+                <div>
+                    <a class="brand" href="../index.html"
+                        ><img
+                            class="brand-icon"
+                            src="../assets/fameally-mark.webp"
+                            alt=""
+                            width="40"
+                            height="40"
+                        /><span>Fameally</span></a
+                    >
+                    <p>Meals planned.<br />Shopping shared.</p>
+                    <p class="small">A meal planning app from ENVentures LTD.</p>
+                </div>
                 <div class="footer-links">
-                    <a href="../index.html">Home</a>
-                    <a href="../index.html#features">Features</a>
-                    <a href="../articles/index.html">Articles</a>
-                    <a href="../index.html#pricing">Pricing</a>
-                    <a href="../index.html#download">Download</a>
-                    <a href="../support.html">Support</a>
-                    <a href="../legal.html">Legal</a>
+                    <strong>Fameally</strong><a href="../index.html#how-it-works">How it works</a
+                    ><a href="../index.html#pricing">Plans and pricing</a
+                    ><a href="../index.html#download">Download the app</a>
+                </div>
+                <div class="footer-links">
+                    <strong>Here to help</strong
+                    ><a href="../articles/index.html">Meal planning guides</a
+                    ><a href="../support.html">Contact support</a
+                    ><a href="../account-deletion.html">Account deletion</a>
+                </div>
+                <div class="footer-links">
+                    <strong>Information</strong><a href="../legal.html">Legal information</a
+                    ><a href="../privacy-policy.html">Privacy policy</a
+                    ><a href="../terms.html">Terms of use</a>
                 </div>
             </div>
+            <div class="container footer-bottom">
+                <span>© 2026 ENVentures LTD. All rights reserved.</span
+                ><span>Made for the week ahead.</span>
+            </div>
         </footer>
+
+        <script src="../site.js" defer=""></script>
     </body>
 </html>
