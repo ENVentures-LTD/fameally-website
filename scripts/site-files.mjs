@@ -25,6 +25,7 @@ export const publicFiles = [
     "site.js",
     "robots.txt",
     "sitemap.xml",
+    "305954218a0338733c38f301bb6825ed.txt",
     "CNAME",
     ".nojekyll",
     ".well-known/assetlinks.json",

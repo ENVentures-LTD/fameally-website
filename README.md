@@ -22,6 +22,7 @@ Requires Node.js 22.16+ (or 24+).
 ```powershell
 node scripts/validate-site.mjs
 node scripts/test-article-share.mjs
+node --test scripts/test-indexnow.mjs
 node scripts/build-site.mjs
 node scripts/validate-site.mjs _site
 ```
@@ -46,6 +47,24 @@ Rebuild responsive images and the sharing image with `python scripts/build-web-a
 After approval, commit and push the reviewed revision to `main`, then run **Publish reviewed website** from the repository's Actions page, selecting `main`. GitHub Pages must use **GitHub Actions** as its build source. The workflow retains the existing `fameally.com` domain and HTTPS. Verify `/`, `/articles/index.html`, `/open/`, the PDF, both `.well-known` association files, and the sitemap on the live host. Keep the previous release commit available for rollback. Association files must retain the host's appropriate JSON content type.
 
 ## Search Console follow-up
+
+### IndexNow
+
+The publish workflow compares the built pages with the live sitemap and HTML before deployment. After GitHub Pages succeeds, it verifies the public IndexNow key and submits only added, changed or removed page URLs to `https://api.indexnow.org/indexnow`. Participating engines share these notifications. No account or GitHub secret is required; the verification file is intentionally public. Drafts and `/open/` are excluded.
+
+Build first, then preview the changes without submitting anything:
+
+```powershell
+node scripts/indexnow.mjs dry-run
+```
+
+The initial deployment activates the verification file. If page content is unchanged, it submits no URLs; use the sitemap in Bing Webmaster Tools for existing-page discovery. HTTP 200 means URLs were received; HTTP 202 means key validation is pending. Neither guarantees indexing or ranking.
+
+If the **Notify IndexNow after publishing** job fails, the website has already deployed. Re-run that failed job after resolving the reported issue (for example, waiting for the key to become available or a rate limit to clear). Re-running only that job preserves the original change list. Avoid rerunning the entire workflow for a notification retry, because comparing against the newly published site would find no changes.
+
+Protocol reference: https://www.indexnow.org/documentation
+
+### Google Search Console
 
 Before publishing, export the last complete 28 days of Search results with the UK country filter. Save clicks, impressions, CTR, average position, queries and landing pages. Also retain an unfiltered export and record indexing and Core Web Vitals status. These account reports were not available during implementation.
 
