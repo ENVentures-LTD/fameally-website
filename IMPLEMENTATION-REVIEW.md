@@ -33,7 +33,7 @@ Single local simulated-mobile runs, not field Core Web Vitals or a ranking predi
 
 ## Release follow-up
 
-1. Publication approved on 28 September 2026. ENVentures publishes from its branch; Fameally retains its manually dispatched publication workflow. Future releases still require review and approval.
+1. Publication approved on 28 September 2026. The owner also requested automatic Fameally publication on pushes to `main`. Both sites now publish on a main-branch push; review before pushing. Fameally retains manual dispatch for deliberate redeployment/retry and still validates its restricted `_site` artifact before deployment.
 2. If publishing after 28 September, set the introduction's publication/index/schema dates and new-page sitemap dates to its real publication date.
 3. Release ENVentures first, then Fameally; verify cross-site links once both releases are live. Retain previous revisions for rollback.
 4. Official social URLs remain unsupplied: there are no social placeholders or `sameAs` guesses. Add confirmed profiles later as documented in `CONTENT-PLAN.md`.

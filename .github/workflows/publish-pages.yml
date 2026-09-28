@@ -1,7 +1,9 @@
 name: Publish reviewed website
 
-# Publishing is an explicit action after local review, never a side effect of a push.
+# Review before pushing main: every push to main publishes the validated site.
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:

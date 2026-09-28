@@ -55,9 +55,9 @@ The company site changes should be reviewed and released first, followed by Fame
 
 Run `node --test scripts/test-indexnow.mjs` as well as the checks above. IndexNow supports the new collection and detail routes; tests mock network access and never submit URLs.
 
-**The owner must review the local preview and explicitly approve publishing.** Building, testing, opening the preview, or pushing source changes does not publish anything. The manually dispatched **Publish reviewed website** GitHub Actions workflow validates and publishes only `_site` from `main`.
+**Review the local preview before pushing to `main`: a push to `main` publishes the website automatically.** Building, testing and opening the preview do not publish anything. The **Publish reviewed website** GitHub Actions workflow validates and publishes only `_site` from `main`. Pushes to other branches do not deploy. Manual dispatch remains available for a deliberate redeployment or retry from `main`.
 
-After approval, commit and push the reviewed revision to `main`, then run **Publish reviewed website** from the repository's Actions page, selecting `main`. GitHub Pages must use **GitHub Actions** as its build source. The workflow retains the existing `fameally.com` domain and HTTPS. Verify `/`, `/articles/index.html`, `/open/`, the PDF, both `.well-known` association files, and the sitemap on the live host. Keep the previous release commit available for rollback. Association files must retain the host's appropriate JSON content type.
+Commit and push the reviewed revision to `main`, then monitor **Publish reviewed website** in the repository's Actions page. No separate dispatch is required. GitHub Pages must use **GitHub Actions** as its build source. The workflow retains the existing `fameally.com` domain and HTTPS. Verify `/`, `/articles/index.html`, `/updates/`, `/resources/`, `/open/`, the PDF, both `.well-known` association files, and the sitemap on the live host. Keep the previous release commit available for rollback. Association files must retain the host's appropriate JSON content type.
 
 ## Search Console follow-up
 
