@@ -1,11 +1,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fameally.com/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-28</lastmod>
   </url>
   <url>
     <loc>https://fameally.com/articles/index.html</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-28</lastmod>
   </url>
   <url>
     <loc>https://fameally.com/articles/shared-meal-planning-app-for-families.html</loc>
@@ -65,5 +65,17 @@
   <url>
     <loc>https://fameally.com/articles/printable-weekly-meal-planner-vs-meal-planning-app.html</loc>
     <lastmod>2026-09-27</lastmod>
+  </url>
+  <url>
+    <loc>https://fameally.com/updates/</loc>
+    <lastmod>2026-09-28</lastmod>
+  </url>
+  <url>
+    <loc>https://fameally.com/updates/introducing-fameally.html</loc>
+    <lastmod>2026-09-28</lastmod>
+  </url>
+  <url>
+    <loc>https://fameally.com/resources/</loc>
+    <lastmod>2026-09-28</lastmod>
   </url>
 </urlset>

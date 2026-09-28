@@ -9,20 +9,37 @@ const root = resolve(import.meta.dirname, "..");
 
 function validateUrl(value) {
     const url = new URL(value);
-    if (url.origin !== origin || url.username || url.password || url.search || url.hash ||
-        !(url.pathname === "/" || /^\/(?:articles\/)?[a-z0-9-]+\.html$/.test(url.pathname)))
+    if (
+        url.origin !== origin ||
+        url.username ||
+        url.password ||
+        url.search ||
+        url.hash ||
+        !(
+            ["/", "/updates/", "/resources/"].includes(url.pathname) ||
+            /^\/(?:(?:articles|updates|resources)\/)?[a-z0-9-]+\.html$/.test(url.pathname)
+        ) ||
+        ["/updates/index.html", "/resources/index.html"].includes(url.pathname)
+    )
         throw new Error(`Not a public Fameally page URL: ${value}`);
     return value;
 }
 
 function sitemapUrls(xml) {
     if (!xml.includes("<urlset")) throw new Error("Expected a URL sitemap");
-    return [...new Set([...xml.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
-        .map((match) => validateUrl(match[1])))];
+    return [
+        ...new Set(
+            [...xml.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)].map((match) => validateUrl(match[1])),
+        ),
+    ];
 }
 
 async function get(url, fetcher) {
-    return fetcher(url, { redirect: "error", cache: "no-store", signal: AbortSignal.timeout(30000) });
+    return fetcher(url, {
+        redirect: "error",
+        cache: "no-store",
+        signal: AbortSignal.timeout(30000),
+    });
 }
 
 // Compare with the actual published site before deployment, not the previous Git commit.
@@ -35,7 +52,10 @@ export async function preparePlan(siteRoot, fetcher = fetch) {
     const urlList = [];
     for (const url of current) {
         const path = new URL(url).pathname;
-        const local = readFileSync(join(siteRoot, path === "/" ? "index.html" : path.slice(1)), "utf8");
+        const local = readFileSync(
+            join(siteRoot, path.endsWith("/") ? path.slice(1) + "index.html" : path.slice(1)),
+            "utf8",
+        );
         if (!previous.includes(url)) {
             urlList.push(url);
             continue;
@@ -43,7 +63,7 @@ export async function preparePlan(siteRoot, fetcher = fetch) {
         const live = await get(url, fetcher);
         if (live.status === 404 || live.status === 410) urlList.push(url);
         else if (live.status !== 200) throw new Error(`Cannot compare ${url}: HTTP ${live.status}`);
-        else if (await live.text() !== local) urlList.push(url);
+        else if ((await live.text()) !== local) urlList.push(url);
     }
     // Notify removals too, even though they are no longer in the new sitemap.
     urlList.push(...previous.filter((url) => !current.includes(url)));
@@ -70,7 +90,10 @@ export async function submitPlan(plan, fetcher = fetch) {
     return `IndexNow received ${urlList.length} URLs (HTTP ${response.status}${response.status === 202 ? "; key validation pending" : ""}). Indexing is not guaranteed.`;
 }
 
-if (process.argv[1] && realpathSync(fileURLToPath(import.meta.url)) === realpathSync(process.argv[1])) {
+if (
+    process.argv[1] &&
+    realpathSync(fileURLToPath(import.meta.url)) === realpathSync(process.argv[1])
+) {
     const [mode, planPath] = process.argv.slice(2);
     if (mode === "prepare" || mode === "dry-run") {
         if (mode === "prepare" && !planPath) throw new Error("Provide an output plan path");
@@ -83,5 +106,8 @@ if (process.argv[1] && realpathSync(fileURLToPath(import.meta.url)) === realpath
         console.log("Compared with the live site. No URLs submitted.");
     } else if (mode === "submit" && planPath) {
         console.log(await submitPlan(JSON.parse(readFileSync(planPath, "utf8"))));
-    } else throw new Error("Usage: node scripts/indexnow.mjs dry-run | prepare <plan.json> | submit <plan.json>");
+    } else
+        throw new Error(
+            "Usage: node scripts/indexnow.mjs dry-run | prepare <plan.json> | submit <plan.json>",
+        );
 }

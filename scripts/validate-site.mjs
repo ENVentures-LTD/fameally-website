@@ -1,6 +1,6 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, relative, resolve, sep } from "node:path";
-import { publicPages } from "./site-files.mjs";
+import { publicPages, publicUrl } from "./site-files.mjs";
 
 const root = process.argv[2] ? resolve(process.argv[2]) : resolve(import.meta.dirname, "..");
 const pages = publicPages(root).map((page) => join(root, page));
@@ -13,13 +13,13 @@ const label = (path) => relative(root, path).replaceAll(sep, "/");
 const matchAttrs = (html, tag) => [...html.matchAll(new RegExp("<" + tag + "\\b[^>]*>", "gi"))];
 const attr = (tag, name) => tag.match(new RegExp("\\b" + name + '="([^"]*)"', "i"))?.[1];
 const fail = (path, message) => failures.push(label(path) + ": " + message);
-const pageUrl = (page) =>
-    "https://fameally.com/" +
-    (label(page) === "index.html" ? "" : label(page) === "open/index.html" ? "open" : label(page));
+const pageUrl = (page) => publicUrl(label(page));
 const metadata = (html, name) =>
     matchAttrs(html, "meta")
         .map((m) => m[0])
         .find((tag) => attr(tag, "name") === name || attr(tag, "property") === name);
+const updatePosts = [];
+let updateItems = [];
 function unique(page, map, value, kind) {
     if (!value) return fail(page, "missing " + kind);
     if (map.has(value)) fail(page, `duplicate ${kind} with ${map.get(value)}`);
@@ -89,7 +89,7 @@ for (const page of pages) {
         if (!value || /^(https?:|mailto:|tel:|fameally:|data:)/i.test(value)) continue;
         const [pathAndQuery, fragment] = value.split("#");
         const pathname = pathAndQuery.split("?")[0];
-        const target = pathname
+        let target = pathname
             ? pathname.startsWith("/")
                 ? resolve(root, "." + decodeURIComponent(pathname))
                 : resolve(dirname(page), decodeURIComponent(pathname))
@@ -97,6 +97,11 @@ for (const page of pages) {
         const relativeTarget = relative(root, target);
         if (relativeTarget.startsWith("..") || !existsSync(target)) {
             fail(page, "broken local reference: " + value);
+            continue;
+        }
+        if (statSync(target).isDirectory()) target = join(target, "index.html");
+        if (!existsSync(target)) {
+            fail(page, "missing directory index: " + value);
             continue;
         }
         if (
@@ -119,9 +124,23 @@ for (const page of pages) {
         }
     }
     const organization = nodes.find((node) => node["@type"] === "Organization");
-    if (organization?.["@id"] !== "https://fameally.com/#organization")
+    if (
+        organization?.["@id"] !== "https://enventures.co.uk/#organization" ||
+        organization?.name !== "ENVentures LTD" ||
+        organization?.legalName !== "ENVentures LTD" ||
+        organization?.url !== "https://enventures.co.uk/"
+    )
         fail(page, "missing shared publisher entity");
-    const isArticle = label(page).startsWith("articles/") && label(page) !== "articles/index.html";
+    if (html.includes("https://fameally.com/#organization"))
+        fail(page, "obsolete publisher entity");
+    if (
+        !html.replace(/\s+/g, " ").includes(
+            'Fameally is developed by <a href="https://enventures.co.uk/">ENVentures LTD</a>.',
+        )
+    )
+        fail(page, "missing linked developer relationship");
+    const isArticle =
+        /^(articles|updates)\//.test(label(page)) && !label(page).endsWith("/index.html");
     if (isArticle) {
         const article = nodes.find((node) => ["BlogPosting", "Article"].includes(node["@type"]));
         if (article?.mainEntityOfPage?.["@id"] !== canonical)
@@ -138,6 +157,18 @@ for (const page of pages) {
         const breadcrumbs = nodes.find((node) => node["@type"] === "BreadcrumbList");
         if (breadcrumbs?.itemListElement?.at(-1)?.item !== canonical)
             fail(page, "missing or mismatched breadcrumbs");
+        if (label(page).startsWith("updates/")) {
+            updatePosts.push({ url: canonical, date: article?.datePublished });
+            if (article?.dateModified < article?.datePublished)
+                fail(page, "modification predates publication");
+            if (
+                attr(metadata(html, "article:published_time") ?? "", "content") !==
+                    article?.datePublished ||
+                attr(metadata(html, "article:modified_time") ?? "", "content") !==
+                    article?.dateModified
+            )
+                fail(page, "update sharing dates mismatch");
+        }
     }
     if (
         label(page) === "index.html" &&
@@ -145,18 +176,65 @@ for (const page of pages) {
     )
         fail(page, "missing app entity");
     if (
-        label(page) === "articles/index.html" &&
+        ["articles/index.html", "updates/index.html", "resources/index.html"].includes(
+            label(page),
+        ) &&
         !nodes.some((node) => node["@type"] === "CollectionPage")
     )
-        fail(page, "missing guide collection entity");
+        fail(page, "missing collection entity");
+    if (["updates/index.html", "resources/index.html"].includes(label(page))) {
+        const collection = nodes.find((node) => node["@type"] === "CollectionPage");
+        if (
+            collection?.url !== canonical ||
+            collection?.publisher?.["@id"] !== organization?.["@id"]
+        )
+            fail(page, "collection URL or publisher mismatch");
+        const items = collection?.hasPart?.itemListElement ?? [];
+        if (!items.length) fail(page, "empty collection");
+        for (const [index, item] of items.entries()) {
+            if (item.position !== index + 1) fail(page, "non-sequential collection positions");
+            const path = new URL(item.url).pathname;
+            const expectedHref = path.startsWith("/updates/")
+                ? path.slice("/updates/".length)
+                : ".." + path;
+            if (!html.includes(`href="${expectedHref}"`))
+                fail(page, "collection item missing visible link");
+        }
+        if (label(page) === "updates/index.html") updateItems = items;
+    }
+    const app = nodes.find((node) => node["@type"] === "SoftwareApplication");
+    if (
+        app &&
+        (app["@id"] !== "https://fameally.com/#app" ||
+            app.publisher?.["@id"] !== organization?.["@id"] ||
+            app.creator?.["@id"] !== organization?.["@id"] ||
+            app.installUrl?.length !== 2 ||
+            app.downloadUrl ||
+            !app.installUrl?.some((url) => url.includes("id6761440482")) ||
+            !app.installUrl?.some((url) => url.includes("id=com.edwardnickless.fameally")))
+    )
+        fail(page, "inconsistent application identity, publisher or installation links");
+}
+
+const updateIndex = join(root, "updates/index.html");
+if (
+    updateItems.length !== updatePosts.length ||
+    new Set(updateItems.map((item) => item.url)).size !== updateItems.length
+)
+    fail(updateIndex, "update index must list every published post exactly once");
+let previousDate = "9999-12-31";
+for (const item of updateItems) {
+    const post = updatePosts.find((post) => post.url === item.url);
+    if (!post || post.date > previousDate)
+        fail(updateIndex, "updates must be ordered by descending publication date");
+    if (post && !read(updateIndex).includes(`datetime="${post.date}"`))
+        fail(updateIndex, "missing visible post date");
+    previousDate = post?.date ?? previousDate;
 }
 
 const sitemap = read(join(root, "sitemap.xml"));
 for (const page of pages) {
-    const url =
-        label(page) === "index.html"
-            ? "https://fameally.com/"
-            : "https://fameally.com/" + label(page);
+    const url = pageUrl(page);
     if (label(page) === "open/index.html") continue;
     if (!sitemap.includes("<loc>" + url + "</loc>")) fail(page, "missing from sitemap");
 }

@@ -13,12 +13,26 @@ export const rootPages = [
 export function publicPages(root) {
     return [
         ...rootPages,
-        ...readdirSync(join(root, "articles"))
-            .filter((name) => name.endsWith(".html"))
-            .sort()
-            .map((name) => "articles/" + name),
+        ...["articles", "updates", "resources"].flatMap((section) =>
+            readdirSync(join(root, section))
+                .filter((name) => name.endsWith(".html"))
+                .sort()
+                .map((name) => section + "/" + name),
+        ),
         "open/index.html",
     ];
+}
+// Existing article and app-opening canonicals remain unchanged.
+export function publicUrl(page) {
+    const path =
+        page === "index.html"
+            ? ""
+            : page === "open/index.html"
+              ? "open"
+              : ["updates/index.html", "resources/index.html"].includes(page)
+                ? page.slice(0, -"index.html".length)
+                : page;
+    return "https://fameally.com/" + path;
 }
 export const publicFiles = [
     "styles.css",

@@ -22,6 +22,7 @@ Requires Node.js 22.16+ (or 24+).
 ```powershell
 node scripts/validate-site.mjs
 node scripts/test-article-share.mjs
+node --test scripts/test-site-files.mjs scripts/test-indexnow.mjs
 node --test scripts/test-indexnow.mjs
 node scripts/build-site.mjs
 node scripts/validate-site.mjs _site
@@ -41,6 +42,18 @@ Set `BROWSER_CHANNEL` to another installed Playwright browser channel if needed.
 Rebuild responsive images and the sharing image with `python scripts/build-web-assets.py` (requires Pillow). Keep the original screenshot JPEGs as the source; generated WebP files are committed so deployment needs no image tooling. Keep pricing and app-store eligibility wording synchronised with the product when it changes.
 
 ## Release gate
+
+### Updates, Resources and entity maintenance
+
+Published Updates live in `updates/`, with `/updates/` as the index canonical and `.html` post URLs. Resources uses `/resources/`; existing article canonicals and the printable PDF URL remain unchanged. Keep drafts outside all published directories. Every HTML file in `articles/`, `updates/` and `resources/` is included by `scripts/site-files.mjs`. Documentation, including `CONTENT-PLAN.md`, remains excluded.
+
+For each update: write the page using the existing editorial layout; add it to the index and its JSON-LD ItemList in descending **publication** date order; add its canonical URL to the sitemap; then run all checks. Include a summary, visible byline, publication date, matching BlogPosting/BreadcrumbList data and relevant contextual links. On first publication, dateModified equals datePublished; show a separate updated date only for a meaningful later edit. Never change an old publication date to promote a post. The introductory post is prepared for 28 September 2026: if publication happens later, update its visible/index/schema dates and new-page sitemap dates together before release.
+
+The shared publisher/creator is `https://enventures.co.uk/#organization`; the application is `https://fameally.com/#app`. Keep these entities consistent with ENVentures' product page. Social links and app `sameAs` entries remain deferred until official URLs are supplied; see `CONTENT-PLAN.md`.
+
+The company site changes should be reviewed and released first, followed by Fameally. Review both sites' cross-links after both releases. Do not push ENVentures' publishing branch until its preview is approved. Capture current Search Console indexing and performance before release where account access is available; website implementation does not modify store or social accounts.
+
+Run `node --test scripts/test-indexnow.mjs` as well as the checks above. IndexNow supports the new collection and detail routes; tests mock network access and never submit URLs.
 
 **The owner must review the local preview and explicitly approve publishing.** Building, testing, opening the preview, or pushing source changes does not publish anything. The manually dispatched **Publish reviewed website** GitHub Actions workflow validates and publishes only `_site` from `main`.
 

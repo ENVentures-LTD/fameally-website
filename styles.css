@@ -1250,3 +1250,56 @@ main > .container {
         color: inherit;
     }
 }
+
+/* Product news and free resources reuse the editorial design. */
+.updates-list {
+    max-width: 760px;
+    display: grid;
+    gap: 24px;
+}
+.section-note {
+    margin-top: 32px;
+    color: var(--muted);
+}
+.resource-panel {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
+}
+.resource-preview {
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+.resource-preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.resource-panel h2 {
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+}
+.resource-panel li {
+    margin-bottom: 12px;
+    color: var(--muted);
+}
+.resource-next {
+    max-width: 760px;
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+}
+.resource-next h2 {
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+}
+@media (max-width: 760px) {
+    .resource-panel {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .resource-preview {
+        max-width: 240px;
+    }
+}

@@ -5,7 +5,13 @@ import { resolve } from "node:path";
 import assert from "node:assert/strict";
 import { publicPages } from "./site-files.mjs";
 const require = createRequire(import.meta.url);
-const { chromium } = require("playwright");
+let chromium;
+try {
+    ({ chromium } = require("playwright"));
+} catch (error) {
+    if (error.code !== "MODULE_NOT_FOUND") throw error;
+    ({ chromium } = require("playwright-core"));
+}
 const AxeBuilder = require("@axe-core/playwright").default;
 const base = process.env.SITE_URL ?? "http://127.0.0.1:8765";
 const root = resolve(import.meta.dirname, "..");
@@ -24,6 +30,9 @@ const representatives = [
     "support.html",
     "privacy-policy.html",
     "open/index.html",
+    "updates/index.html",
+    "updates/introducing-fameally.html",
+    "resources/index.html",
 ];
 const errors = [],
     audits = [];
@@ -131,6 +140,19 @@ try {
         true,
     );
     await nojs.close();
+    const editorial = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+    const editorialPage = await editorial.newPage();
+    for (const [path, canonical] of [
+        ["updates/", "https://fameally.com/updates/"],
+        ["resources/", "https://fameally.com/resources/"],
+        ["updates/introducing-fameally.html", "https://fameally.com/updates/introducing-fameally.html"],
+    ]) {
+        await editorialPage.goto(`${base}/${path}`);
+        assert.equal(await editorialPage.locator('link[rel="canonical"]').getAttribute("href"), canonical);
+        assert.ok(await editorialPage.locator("main").isVisible());
+        assert.ok(await editorialPage.locator("#primary-links").isVisible());
+    }
+    await editorial.close();
     writeFileSync(
         `${output}/results.json`,
         JSON.stringify(

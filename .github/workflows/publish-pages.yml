@@ -32,6 +32,7 @@ jobs:
           node scripts/validate-site.mjs
           node scripts/test-article-share.mjs
           node --test scripts/test-indexnow.mjs
+          node --test scripts/test-site-files.mjs
       - name: Build and validate public files
         run: |
           node scripts/build-site.mjs

@@ -1,4 +1,6 @@
 (() => {
+    // Loaded immediately after the navigation, before the hero is parsed, so
+    // collapsing the progressively enhanced mobile links cannot shift content.
     const nav = document.querySelector(".topbar");
     const toggle = nav?.querySelector(".menu-toggle");
     const links = nav?.querySelector(".nav-links");

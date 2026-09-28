@@ -24,7 +24,7 @@
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="icon" href="assets/favicon-32.png" />
         <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-        <link rel="stylesheet" href="styles.css?v=20260927" />
+        <link rel="stylesheet" href="styles.css?v=20260928" />
 
         <meta name="color-scheme" content="light dark" />
         <meta property="og:site_name" content="Fameally" />
@@ -50,15 +50,11 @@
                 "@graph": [
                     {
                         "@type": "Organization",
-                        "@id": "https://fameally.com/#organization",
-                        "name": "Fameally",
+                        "@id": "https://enventures.co.uk/#organization",
+                        "name": "ENVentures LTD",
                         "legalName": "ENVentures LTD",
-                        "url": "https://fameally.com/",
-                        "logo": {
-                            "@type": "ImageObject",
-                            "url": "https://fameally.com/assets/fameally-icon-512.png"
-                        },
-                        "email": "support@fameally.com"
+                        "url": "https://enventures.co.uk/",
+                        "email": "contact@enventures.co.uk"
                     },
                     {
                         "@type": "SoftwareApplication",
@@ -69,12 +65,16 @@
                         "description": "Save recipes, plan weekly meals and build shared shopping lists with Fameally. Compare UK plans for individuals and families. Available on iOS and Android.",
                         "url": "https://fameally.com/",
                         "publisher": {
-                            "@id": "https://fameally.com/#organization"
+                            "@id": "https://enventures.co.uk/#organization"
                         },
-                        "downloadUrl": [
+                        "creator": {
+                            "@id": "https://enventures.co.uk/#organization"
+                        },
+                        "installUrl": [
                             "https://apps.apple.com/gb/app/fameally-meal-planner/id6761440482",
                             "https://play.google.com/store/apps/details?id=com.edwardnickless.fameally"
-                        ]
+                        ],
+                        "image": "https://fameally.com/assets/fameally-icon-512.png"
                     }
                 ]
             }
@@ -105,12 +105,14 @@
                     <div class="nav-links" id="primary-links">
                         <a href="index.html#how-it-works">Product</a
                         ><a href="index.html#pricing">Pricing</a
-                        ><a href="articles/index.html">Guides</a><a href="support.html">Support</a
+                        ><a href="articles/index.html">Guides</a><a href="updates/">Updates</a
+                        ><a href="support.html">Support</a
                         ><a class="button button-primary button-small" href="index.html#download"
                             >Get Fameally</a
                         >
                     </div>
                 </nav>
+                <script src="site.js"></script>
                 <section class="hero hero-home">
                     <div class="hero-copy">
                         <span class="eyebrow">For the week ahead</span>
@@ -452,6 +454,15 @@
                     </div>
                 </div>
             </section>
+            <section class="section">
+                <div class="container">
+                    <p class="section-note">
+                        Prefer a plan on the fridge? Download our
+                        <a href="resources/">free weekly dinner planner</a>, or see
+                        <a href="updates/">what’s happening at Fameally</a>.
+                    </p>
+                </div>
+            </section>
             <section class="section download-section" id="download">
                 <div class="container download-card">
                     <div>
@@ -498,7 +509,10 @@
                         /><span>Fameally</span></a
                     >
                     <p>Meals planned.<br />Shopping shared.</p>
-                    <p class="small">A meal planning app from ENVentures LTD.</p>
+                    <p class="small">
+                        Fameally is developed by
+                        <a href="https://enventures.co.uk/">ENVentures LTD</a>.
+                    </p>
                 </div>
                 <div class="footer-links">
                     <strong>Fameally</strong><a href="index.html#how-it-works">How it works</a
@@ -508,6 +522,7 @@
                 <div class="footer-links">
                     <strong>Here to help</strong
                     ><a href="articles/index.html">Meal planning guides</a
+                    ><a href="updates/">Product updates</a><a href="resources/">Free resources</a
                     ><a href="support.html">Contact support</a
                     ><a href="account-deletion.html">Account deletion</a>
                 </div>
@@ -522,6 +537,5 @@
                 ><span>Made for the week ahead.</span>
             </div>
         </footer>
-        <script src="site.js" defer=""></script>
     </body>
 </html>
