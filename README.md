@@ -41,6 +41,20 @@ Set `BROWSER_CHANNEL` to another installed Playwright browser channel if needed.
 
 Rebuild responsive images and the sharing image with `python scripts/build-web-assets.py` (requires Pillow). Keep the original screenshot JPEGs as the source; generated WebP files are committed so deployment needs no image tooling. Keep pricing and app-store eligibility wording synchronised with the product when it changes.
 
+App previews use light-mode `screenshot-<scene>.jpg` sources and matching
+`screenshot-<scene>-dark.jpg` sources. Both are real captures from Fameally
+1.9.77, resized proportionally to 900 × 1820. Static screenshot pictures follow the website's colour scheme automatically,
+including when it changes, without JavaScript or appearance controls. Article
+captions sit below their centred screenshots at every screen width. Screenshot changes also require
+regenerating the main social image and the three planner promotional graphics;
+the printable PDF itself does not need to change.
+
+Run the additional screenshot appearance and layout checks against the built
+preview with `node scripts/test-screenshots.mjs` using the same `NODE_PATH` and
+`SITE_URL` setup as the browser checks above. Raw emulator captures, version
+provenance, demo imports and the page-to-capture inventory belong under ignored
+`output/review/captures`, not the public assets directory.
+
 ## Release gate
 
 ### Updates, Resources and entity maintenance

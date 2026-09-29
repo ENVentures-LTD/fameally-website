@@ -385,24 +385,14 @@
                         <section class="product-moment" id="fameally-product-moment">
                             <h2>Where Fameally fits into this routine</h2>
                             <figure class="article-figure">
-                                <picture
-                                    ><source
-                                        type="image/webp"
-                                        srcset="
-                                            ../assets/screenshot-shopping-list-320.webp 320w,
-                                            ../assets/screenshot-shopping-list-640.webp 640w,
-                                            ../assets/screenshot-shopping-list-900.webp 900w
-                                        "
-                                        sizes="(max-width: 700px) 230px, 240px" />
-                                    <img
-                                        src="../assets/screenshot-shopping-list.jpg"
-                                        alt="Fameally shopping list screen showing organised food and household shopping items"
-                                        width="900"
-                                        height="1955"
-                                        loading="lazy"
-                                        decoding="async"
-                                        sizes="(max-width: 700px) 230px, 240px"
-                                /></picture>
+                                <div class="screenshot-viewer" data-screenshot="household-list" data-light="../assets/screenshot-household-list" data-dark="../assets/screenshot-household-list-dark">
+                                    <picture>
+                                        <source media="(prefers-color-scheme: dark)" type="image/webp" srcset="../assets/screenshot-household-list-dark-320.webp 320w, ../assets/screenshot-household-list-dark-640.webp 640w, ../assets/screenshot-household-list-dark-900.webp 900w" sizes="(max-width: 700px) 230px, 240px" />
+                                        <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshot-household-list-dark.jpg" />
+                                        <source type="image/webp" srcset="../assets/screenshot-household-list-320.webp 320w, ../assets/screenshot-household-list-640.webp 640w, ../assets/screenshot-household-list-900.webp 900w" sizes="(max-width: 700px) 230px, 240px" />
+                                        <img src="../assets/screenshot-household-list.jpg" alt="Fameally household shopping list with regular cleaning and toiletry essentials" width="900" height="1820" loading="lazy" decoding="async" sizes="(max-width: 700px) 230px, 240px" />
+                                    </picture>
+                                </div>
                                 <figcaption>
                                     Fameally helps keep the food shop and regular household items in
                                     one organised list.

@@ -360,24 +360,14 @@
                         <section class="product-moment" id="fameally-product-moment">
                             <h2>Where Fameally fits into this routine</h2>
                             <figure class="article-figure">
-                                <picture
-                                    ><source
-                                        type="image/webp"
-                                        srcset="
-                                            ../assets/screenshot-plan-week-320.webp 320w,
-                                            ../assets/screenshot-plan-week-640.webp 640w,
-                                            ../assets/screenshot-plan-week-900.webp 900w
-                                        "
-                                        sizes="(max-width: 700px) 230px, 240px" />
-                                    <img
-                                        src="../assets/screenshot-plan-week.jpg"
-                                        alt="Fameally Planning screen showing meals planned across the week"
-                                        width="900"
-                                        height="1955"
-                                        loading="lazy"
-                                        decoding="async"
-                                        sizes="(max-width: 700px) 230px, 240px"
-                                /></picture>
+                                <div class="screenshot-viewer" data-screenshot="plan-template" data-light="../assets/screenshot-plan-template" data-dark="../assets/screenshot-plan-template-dark">
+                                    <picture>
+                                        <source media="(prefers-color-scheme: dark)" type="image/webp" srcset="../assets/screenshot-plan-template-dark-320.webp 320w, ../assets/screenshot-plan-template-dark-640.webp 640w, ../assets/screenshot-plan-template-dark-900.webp 900w" sizes="(max-width: 700px) 230px, 240px" />
+                                        <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshot-plan-template-dark.jpg" />
+                                        <source type="image/webp" srcset="../assets/screenshot-plan-template-320.webp 320w, ../assets/screenshot-plan-template-640.webp 640w, ../assets/screenshot-plan-template-900.webp 900w" sizes="(max-width: 700px) 230px, 240px" />
+                                        <img src="../assets/screenshot-plan-template.jpg" alt="Fameally seven-day meal plan with bolognese, fajitas, jacket potatoes and other familiar dinners" width="900" height="1820" loading="lazy" decoding="async" sizes="(max-width: 700px) 230px, 240px" />
+                                    </picture>
+                                </div>
                                 <figcaption>
                                     Fameally keeps the week visible, so you can plan meals by day
                                     and move them when real life changes the order.
