@@ -35,6 +35,7 @@ export function publicUrl(page) {
     return "https://fameally.com/" + path;
 }
 export const publicFiles = [
+    "assets/article-share-LICENSE.txt",
     "styles.css",
     "site.js",
     "robots.txt",

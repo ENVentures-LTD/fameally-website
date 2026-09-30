@@ -660,6 +660,60 @@ footer {
     font-size: 0.8rem;
     color: var(--muted);
 }
+.article-meta {
+    align-items: center;
+}
+.article-share {
+    align-self: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+.article-share-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 44px;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--accent);
+    font: inherit;
+    cursor: pointer;
+}
+.article-share-button:hover {
+    background: var(--bg-soft);
+}
+.article-share-button:disabled {
+    cursor: wait;
+}
+.article-share svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+.article-share [hidden] {
+    display: none;
+}
+.article-share-status:empty {
+    display: none;
+}
+.article-share-status {
+    margin: 8px 0 0;
+}
+.article-share-fallback label {
+    display: block;
+    margin-top: 8px;
+}
+.article-share-fallback input {
+    width: min(100%, 42rem);
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--ink);
+    font: inherit;
+}
 .article-layout {
     max-width: 760px;
 }

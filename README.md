@@ -35,6 +35,7 @@ npm install --prefix output/review/tools --cache output/review/npm-cache --no-sa
 $env:NODE_PATH = (Resolve-Path output/review/tools/node_modules).Path
 $env:SITE_URL = 'http://127.0.0.1:8766'
 node scripts/test-browser.mjs
+node scripts/test-article-share-browser.mjs
 ```
 
 Set `BROWSER_CHANNEL` to another installed Playwright browser channel if needed. Browser reports and screenshots are saved in the ignored `output/review/browser` directory. The checks cover all public pages at 360, 390, 768 and 1440 pixels in light and dark modes, plus representative axe audits, keyboard navigation, the no-JavaScript menu fallback, reduced motion, 200% CSS zoom, the PDF and store links.
@@ -54,6 +55,29 @@ preview with `node scripts/test-screenshots.mjs` using the same `NODE_PATH` and
 `SITE_URL` setup as the browser checks above. Raw emulator captures, version
 provenance, demo imports and the page-to-capture inventory belong under ignored
 `output/review/captures`, not the public assets directory.
+
+The Due Soon update uses real light/dark captures from the connected Android
+emulator running Fameally 1.9.77. Its existing demonstration household supplies
+the displayed purchase patterns; capture provenance is recorded in
+`output/review/captures/due-soon-provenance.json`.
+
+Every Guide and Product Update detail page uses `assets/article-share.js`.
+Keep one Share control beside the article metadata, a polite status message,
+and a canonical manual-copy input for clipboard failures and no-JavaScript
+visitors. The icons reuse the app's Heroicons paths: ArrowUpOnSquare on
+iOS/iPadOS and Share elsewhere. Native sharing is capability-detected;
+unsupported sharing falls back to clipboard copying. The optional browser
+sharing checks cover both icons and real DOM fallback behaviour.
+
+All page metadata belongs in the document head with no duplicate tags. Social
+titles, descriptions, URLs and image fields must agree with the canonical page
+metadata. Keep page-specific structured data grounded in visible content.
+The publication gate checks duplicate Published/Updated dates on every public
+page, including newly discovered Guides, Updates and Resources. Articles must
+show one original publication date and at most one latest meaningful update;
+other pages may remain undated. New root pages or sections must be added to
+the explicit publication boundary in `scripts/site-files.mjs`, after which the
+same validation applies automatically.
 
 ## Release gate
 

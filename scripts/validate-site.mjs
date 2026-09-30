@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, relative, resolve, sep } from "node:path";
 import { publicPages, publicUrl } from "./site-files.mjs";
+import { pageDateErrors } from "./article-dates.mjs";
 
 const root = process.argv[2] ? resolve(process.argv[2]) : resolve(import.meta.dirname, "..");
 const pages = publicPages(root).map((page) => join(root, page));
@@ -18,6 +19,7 @@ const metadata = (html, name) =>
     matchAttrs(html, "meta")
         .map((m) => m[0])
         .find((tag) => attr(tag, "name") === name || attr(tag, "property") === name);
+const content = (html, name) => attr(metadata(html, name) ?? "", "content");
 const updatePosts = [];
 let updateItems = [];
 function unique(page, map, value, kind) {
@@ -28,6 +30,19 @@ function unique(page, map, value, kind) {
 
 for (const page of pages) {
     const html = read(page);
+    const head = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1] ?? "";
+    const body = html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i)?.[1] ?? "";
+    if (/<(?:meta|title|link)\b/i.test(body)) fail(page, "page metadata must be in head");
+    const seenMetadata = new Set();
+    for (const match of matchAttrs(html, "meta")) {
+        const key = attr(match[0], "name") ?? attr(match[0], "property") ??
+            (attr(match[0], "charset") ? "charset" : undefined);
+        if (seenMetadata.has(key)) fail(page, "duplicate metadata: " + key);
+        seenMetadata.add(key);
+    }
+    if (matchAttrs(head, "title").length !== 1) fail(page, "expected one title in head");
+    if (matchAttrs(head, "link").filter((m) => attr(m[0], "rel") === "canonical").length !== 1)
+        fail(page, "expected one canonical in head");
     unique(page, titles, html.match(/<title>([^<]+)<\/title>/i)?.[1], "title");
     unique(page, descriptions, attr(metadata(html, "description") ?? "", "content"), "description");
     const canonicalTag = matchAttrs(html, "link")
@@ -48,13 +63,46 @@ for (const page of pages) {
         "og:url",
         "og:image",
         "og:image:alt",
+        "og:image:secure_url",
+        "og:image:type",
+        "og:image:width",
+        "og:image:height",
+        "og:site_name",
+        "og:locale",
         "twitter:card",
+        "twitter:title",
+        "twitter:description",
+        "twitter:image",
+        "twitter:image:alt",
     ]) {
         if (!attr(metadata(html, key) ?? "", "content"))
             fail(page, "missing social metadata: " + key);
     }
     if (attr(metadata(html, "og:url") ?? "", "content") !== canonical)
         fail(page, "social URL does not match canonical");
+    const pageTitle = html.match(/<title>([^<]+)<\/title>/i)?.[1];
+    for (const key of ["og:title", "twitter:title"])
+        if (content(html, key) !== pageTitle) fail(page, key + " does not match page title");
+    for (const key of ["og:description", "twitter:description"])
+        if (content(html, key) !== content(html, "description"))
+            fail(page, key + " does not match page description");
+    if (content(html, "twitter:card") !== "summary_large_image")
+        fail(page, "expected large-image social card");
+    if (content(html, "og:image") !== content(html, "twitter:image") ||
+        content(html, "og:image") !== content(html, "og:image:secure_url"))
+        fail(page, "social images must agree");
+    if (content(html, "og:image:type") !== "image/jpeg" ||
+        content(html, "og:image:width") !== "1200" ||
+        content(html, "og:image:height") !== "630")
+        fail(page, "social image dimensions or type mismatch");
+    if (content(html, "og:image:alt") !== content(html, "twitter:image:alt"))
+        fail(page, "social image alt text mismatch");
+    try {
+        const image = new URL(content(html, "og:image"));
+        if (image.origin !== "https://fameally.com" ||
+            !existsSync(resolve(root, "." + image.pathname)))
+            fail(page, "missing or noncanonical social image");
+    } catch { fail(page, "invalid social image URL"); }
     const noindex = /noindex/i.test(attr(metadata(html, "robots") ?? "", "content") ?? "");
     if (noindex !== (label(page) === "open/index.html")) fail(page, "unexpected indexing policy");
     const ids = new Set();
@@ -141,7 +189,22 @@ for (const page of pages) {
         fail(page, "missing linked developer relationship");
     const isArticle =
         /^(articles|updates)\//.test(label(page)) && !label(page).endsWith("/index.html");
+    const datedEntity = nodes.find((node) => ["BlogPosting", "Article"].includes(node["@type"])) ??
+        nodes.find((node) => ["WebPage", "ContactPage", "CollectionPage"].includes(node["@type"]));
+    for (const error of pageDateErrors(html, datedEntity, { requirePublication: isArticle }))
+        fail(page, error);
     if (isArticle) {
+        if (!content(html, "author") || !content(html, "article:section"))
+            fail(page, "missing article author or section metadata");
+        if (content(html, "og:type") !== "article") fail(page, "article social type mismatch");
+        if ([...html.matchAll(/data-article-share=""/g)].length !== 1 ||
+            [...html.matchAll(/data-share-controls=""/g)].length !== 1)
+            fail(page, "expected exactly one reusable Share control");
+        if ([...html.matchAll(/src="\.\.\/assets\/article-share\.js[^" ]*"/g)].length !== 1)
+            fail(page, "missing or duplicate shared article script");
+        if (!html.includes('role="status"') || !html.includes('data-share-fallback=""') ||
+            !html.includes('value="' + canonical + '"'))
+            fail(page, "missing accessible share status or canonical manual-copy fallback");
         const article = nodes.find((node) => ["BlogPosting", "Article"].includes(node["@type"]));
         if (article?.mainEntityOfPage?.["@id"] !== canonical)
             fail(page, "article entity URL mismatch");
@@ -157,6 +220,8 @@ for (const page of pages) {
         const breadcrumbs = nodes.find((node) => node["@type"] === "BreadcrumbList");
         if (breadcrumbs?.itemListElement?.at(-1)?.item !== canonical)
             fail(page, "missing or mismatched breadcrumbs");
+        for (const [key, field] of [["article:published_time", "datePublished"], ["article:modified_time", "dateModified"]])
+            if (content(html, key) !== article?.[field]) fail(page, "article sharing dates mismatch");
         if (label(page).startsWith("updates/")) {
             updatePosts.push({ url: canonical, date: article?.datePublished });
             if (article?.dateModified < article?.datePublished)
@@ -170,6 +235,8 @@ for (const page of pages) {
                 fail(page, "update sharing dates mismatch");
         }
     }
+    if (!isArticle && !nodes.some((node) => ["WebPage", "ContactPage", "CollectionPage"].includes(node["@type"])))
+        fail(page, "missing page structured data");
     if (
         label(page) === "index.html" &&
         !nodes.some((node) => node["@type"] === "SoftwareApplication")
