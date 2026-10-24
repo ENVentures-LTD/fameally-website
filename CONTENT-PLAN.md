@@ -50,14 +50,16 @@ Status progression: **Planned → Drafting → Ready → Published**.
 
 ## Publication calendar
 
-All dates use **Europe/London** time. The opening exception is Thursday **22 October 2026 (evening)** and Friday **23 October 2026**. From Monday **26 October**, targets fall on **Monday, Wednesday and Friday**, until the queue is complete on Wednesday **16 December 2026**. No precise publication times or automated jobs are set.
+All dates use **Europe/London** time. The opening exception is Thursday **22 October 2026 (evening)** and Friday **23 October 2026**. From Monday **26 October**, targets fall on **Monday, Wednesday and Friday**, until the queue is complete on Wednesday **16 December 2026**. These are target dates; no automatic publication is configured.
+
+Publishing reminders are now managed in ChatGPT, following setup confirmed by the user on **24 October 2026**. The requested cadence is **19:00 Europe/London on Monday, Wednesday and Friday**, from **23 October** through **16 December 2026**; manage the cloud reminder's schedule and notifications in ChatGPT. The desktop reminder, **Publish Fameally articles**, was paused on **24 October** to prevent duplicates. The cloud reminder does not read this local roadmap automatically; consult the calendar and brief when acting on a reminder. Reminders do not authorise article creation or publication.
 
 IDs 1–20 retain the original recommendation numbers; L1–L5 identify the five older unpublished topics. The opening order is 1, 2, 3, 4, 5, 7, 9, 10. Existing published guides are excluded from this queue. Empty actual-date cells mean publication has not been recorded.
 
 | ID | Target date | Article and planning brief | Status | Actual publication date |
 | --- | --- | --- | --- | --- |
 | 1 | Thu 2026-10-22 (evening) | [How to Reduce Food Waste at Home: A Practical UK Family Guide](#article-1) | Published | 2026-10-22 |
-| 2 | Fri 2026-10-23 | [How to Organise Your Shopping List by Supermarket Aisle](#article-2) | Planned | |
+| 2 | Fri 2026-10-23 | [How to Organise Your Shopping List by Supermarket Aisle](#article-2) | Published | 2026-10-24 |
 | 3 | Mon 2026-10-26 | [Should You Use AI to Plan Your Family Meals?](#article-3) | Planned | |
 | 4 | Wed 2026-10-28 | [How to Plan Family Meals Around What You Already Have](#article-4) | Planned | |
 | 5 | Fri 2026-10-30 | [How to Share a Shopping List Between iPhone and Android](#article-5) | Planned | |
@@ -137,6 +139,9 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Research and feature checks:** Verify current store-aisle configuration, item ordering and access tier in Fameally before giving app steps. Do not promise automatic knowledge of a supermarket's physical layout or quantified time savings.
 - **Existing links:** [Build a shopping list from meals](articles/how-to-turn-a-meal-plan-into-a-food-shopping-list.html); [Compare household shopping-list apps](articles/best-shopping-list-apps-for-families-and-households.html).
 - **Planned companions:** [9: create a master grocery list](#article-9); [18: printable shopping checklist](#article-18).
+- **Publication record:** [Live article](https://fameally.com/articles/how-to-organise-your-shopping-list-by-supermarket-aisle.html), published **24 October 2026** in [release commit bd20d08](https://github.com/ENVentures-LTD/fameally-website/commit/bd20d08c1a47d8eb0cad7ca1d767c8ff762c2bcc). [Deployment and IndexNow notification](https://github.com/ENVentures-LTD/fameally-website/actions/runs/40127432270) succeeded. The visible publication date, social metadata, structured data, Guides listing and sitemap were aligned to 24 October and verified live; the original 23 October target remains unchanged.
+- **Archived review package (prepared 22 October 2026):** [Local draft HTML](articles-upcoming/how-to-organise-your-shopping-list-by-supermarket-aisle.html); [review notes and checks](output/review/aisle-shopping-20261023/REVIEW.md). These Git-ignored local files retain the review history and approved release package; the live article is linked in the publication record.
+- **Evidence checked:** Fameally's current published pricing confirms aisle sorting in Individual and Family; the article uses a general workflow without unverified configuration steps or store-map claims. Current FSA shopping guidance supports collecting chilled and frozen food last. Source links and the 22 October check date are recorded in the review copy.
 
 <a id="article-3"></a>
 
