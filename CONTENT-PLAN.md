@@ -60,7 +60,7 @@ IDs 1–20 retain the original recommendation numbers; L1–L5 identify the five
 | --- | --- | --- | --- | --- |
 | 1 | Thu 2026-10-22 (evening) | [How to Reduce Food Waste at Home: A Practical UK Family Guide](#article-1) | Published | 2026-10-22 |
 | 2 | Fri 2026-10-23 | [How to Organise Your Shopping List by Supermarket Aisle](#article-2) | Published | 2026-10-24 |
-| 3 | Mon 2026-10-26 | [Should You Use AI to Plan Your Family Meals?](#article-3) | Planned | |
+| 3 | Mon 2026-10-26 | [Should You Use AI to Plan Your Family Meals?](#article-3) | Published | 2026-10-26 |
 | 4 | Wed 2026-10-28 | [How to Plan Family Meals Around What You Already Have](#article-4) | Planned | |
 | 5 | Fri 2026-10-30 | [How to Share a Shopping List Between iPhone and Android](#article-5) | Planned | |
 | 7 | Mon 2026-11-02 | [How to Stop Buying Duplicate Groceries](#article-7) | Planned | |
@@ -155,6 +155,9 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Research and feature checks:** Verify current capabilities and limitations from official documentation for any named AI tool. Check safety and dietary advice against UK authorities; do not rely on generated claims, prices or allergy assurances. Verify Fameally's actual planning workflow independently.
 - **Existing links:** [Compare planning apps with notes](articles/meal-planning-app-vs-notes-app.html); [Build a repeatable family routine](articles/family-meal-planning-for-busy-households-a-simple-repeatable-system.html).
 - **Planned companions:** [6: reuse weekly patterns across a month](#article-6); [14: accommodate different preferences](#article-14); [L5: choose a category of tool](#article-l5).
+- **Publication record:** [Live article](https://fameally.com/articles/should-you-use-ai-to-plan-your-family-meals.html), published **26 October 2026** in [release commit c9abd7e](https://github.com/ENVentures-LTD/fameally-website/commit/c9abd7e11fd841d2af9b18e978b3c1b2f9f3dda6). [Deployment and IndexNow notification](https://github.com/ENVentures-LTD/fameally-website/actions/runs/40401256562) succeeded. The visible publication date, social metadata, structured data, Guides listing and sitemap were verified live with the 26 October publication date.
+- **Archived review package (prepared 24 October 2026):** [Local draft HTML](articles-upcoming/should-you-use-ai-to-plan-your-family-meals.html); [review notes and checks](output/review/ai-meal-planning-20261026/REVIEW.md). These Git-ignored local files retain the review history and approved release package; the live article is linked in the publication record.
+- **Evidence and scope:** Official OpenAI documentation, current FSA/NHS guidance and Fameally's published workflow and access tiers were checked on 24 October. The five-evening comparison is an explicitly labelled illustration, not a live AI product test, a costed basket or a nutritional assessment. No AI-generation feature is attributed to Fameally. Source links, limits and completed website checks are recorded in the review notes.
 
 <a id="article-4"></a>
 
