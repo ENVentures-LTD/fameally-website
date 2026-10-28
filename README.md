@@ -117,8 +117,105 @@ Protocol reference: https://www.indexnow.org/documentation
 
 ### Google Search Console
 
-Before publishing, export the last complete 28 days of Search results with the UK country filter. Save clicks, impressions, CTR, average position, queries and landing pages. Also retain an unfiltered export and record indexing and Core Web Vitals status. These account reports were not available during implementation.
+The 28 October 2026 audit used the connected `sc-domain:fameally.com` property.
+For 28 September–25 October, Google recorded **4 clicks, 141 impressions and
+2.84% CTR**, versus 1 click and 72 impressions in the previous 28 days.
+UK traffic contributed 2 clicks and 90 impressions. These are small samples;
+query rows omit some searches and page impressions use different aggregation
+from property totals. Do not sum page rows into a property baseline.
 
-After deployment, inspect the homepage, guide index and one updated guide using the live URL test. Confirm the selected canonical URLs, submit `https://fameally.com/sitemap.xml`, and confirm `/open/` remains excluded by `noindex`. Review at four and eight weeks against equivalent periods, allowing for seasonal changes and delayed reporting. Search Console does not measure app-store clicks or installs. No analytics or advertising integration has been added.
+Inspection of the 29 sitemap URLs found 14 submitted and indexed, 11 unknown
+to Google and 4 crawled but currently not indexed. These are audit-time
+snapshots, not live tests or promises about later indexing. Raw evidence is
+kept locally under ignored `output/review/seo-audit/`.
+
+#### Search Console checklist after publishing the SEO changes
+
+Start this checklist only after the reviewed revision is deployed to
+`https://fameally.com/`. A local preview cannot be inspected by Google.
+The MCP can read performance and indexed URL status; the following submission
+and live-testing actions must be done in Search Console itself.
+
+- [ ] Select the **fameally.com domain property** in [Search Console](https://search.google.com/search-console).
+- [ ] Open **Sitemaps** and submit `https://fameally.com/sitemap.xml` once.
+      Confirm **Success**, no fetch/parse errors, and a refreshed **Last read**
+      date after Google fetches it. The audit reported the previous download
+      as 20 March 2026 even though the live sitemap returned HTTP 200. Review
+      the submitted/discovered URL count; the current sitemap contains 29 URLs.
+- [ ] Inspect the homepage, Guides index and Resources page listed below.
+      Choose **Test live URL**. Confirm successful fetching, crawling and
+      indexing allowed, and the expected content in **View tested page**.
+      Check the declared canonical in the HTML. Request indexing once for
+      each priority page after the live test succeeds.
+- [ ] Inspect and live-test the existing comparison pages in priority group 2,
+      then the other unknown pages in group 3. Request indexing once for each
+      accessible page you want indexed, within Google's daily quota. Continue
+      on another day if the quota is reached; repeat requests do not speed up
+      crawling.
+- [ ] Reinspect the three materially revised guides in priority group 4.
+      They were crawled but not indexed, with recorded crawls from August.
+      Check whether the last crawl advances beyond this release. A crawl
+      request after a material revision is reasonable; the status alone is
+      not a reason for repeated submissions.
+- [ ] In **Indexing → Pages**, review errors affecting the intended public
+      pages, especially server errors, robots blocks, accidental `noindex`,
+      unexpected duplicates or a different Google-selected canonical. Use
+      **Validate fix** only for an applicable issue that has actually been
+      corrected. Do not try to eliminate every exclusion: `/open/` should
+      retain `noindex`, and `/index.html` may correctly remain an alternate
+      of `/`. The non-indexed Terms page is not a traffic-recovery priority.
+- [ ] After Google recrawls, inspect the indexed results again. Confirm the
+      **Google-selected canonical** matches the expected URL. The live test
+      does not predict Google's eventual canonical selection or guarantee
+      indexing.
+- [ ] Check **Experience → Core Web Vitals** if the report is available.
+      Record any mobile issues. With this traffic level there may be
+      insufficient field data; that does not establish a pass or failure.
+- [ ] Compare complete 28-day periods at four and eight weeks after deployment,
+      both unfiltered and with the UK country filter. Save clicks,
+      impressions, CTR, queries and landing pages. Track whether app searches
+      reach the homepage or relevant comparisons rather than only the Guides
+      index, and whether the previously unknown pages begin receiving
+      impressions. Allow for seasonality and reporting delay. These are
+      review checkpoints, not automatically scheduled tasks.
+
+Priority URLs, in order:
+
+1. **Updated entry pages:**
+   - <https://fameally.com/>
+   - <https://fameally.com/articles/index.html>
+   - <https://fameally.com/resources/>
+2. **Comparison pages reported unknown to Google:**
+   - <https://fameally.com/articles/best-meal-planning-apps-for-uk-families.html>
+   - <https://fameally.com/articles/best-shopping-list-apps-for-families-and-households.html>
+   - <https://fameally.com/articles/mealime-vs-fameally.html>
+   - <https://fameally.com/articles/anylist-alternatives-for-family-meal-planning-and-shopping-lists.html>
+   - <https://fameally.com/articles/meal-planning-app-vs-notes-app.html>
+3. **Other sitemap pages reported unknown to Google:**
+   - <https://fameally.com/articles/cheap-family-meals-for-the-week-plan-before-you-shop.html>
+   - <https://fameally.com/articles/how-to-reduce-food-waste-at-home-a-practical-uk-family-guide.html>
+   - <https://fameally.com/articles/how-to-organise-your-shopping-list-by-supermarket-aisle.html>
+   - <https://fameally.com/articles/should-you-use-ai-to-plan-your-family-meals.html>
+   - <https://fameally.com/articles/how-to-plan-family-meals-around-what-you-already-have.html>
+   - <https://fameally.com/updates/due-soon-remember-regular-shopping-items.html>
+4. **Revised guides reported crawled but not indexed:**
+   - <https://fameally.com/articles/family-meal-planning-for-busy-households-a-simple-repeatable-system.html>
+   - <https://fameally.com/articles/how-to-make-a-weekly-meal-plan-that-survives-a-normal-uk-week.html>
+   - <https://fameally.com/articles/the-easiest-way-to-stop-forgetting-regular-household-shopping-items.html>
+
+The homepage now describes the site with `WebSite` markup and records the six
+visible UK subscription offers with monthly/yearly periods. No rating or
+review was supplied, so software-app rich-result eligibility remains
+incomplete. Do not invent ratings to clear a Rich Results Test warning.
+
+Google references: [submit and manage sitemaps](https://support.google.com/webmasters/answer/7451001),
+[request recrawling](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl),
+[understand Page indexing](https://support.google.com/webmasters/answer/7440203),
+and [software-app structured data](https://developers.google.com/search/docs/appearance/structured-data/software-app).
+
+Search Console does not measure app-store clicks or installs. No analytics or
+advertising integration has been added. Store/profile edits and independent
+review outreach remain separate account and distribution work; confirmed
+social URLs are still required before adding public profile links.
 
 Advertising remains deferred. Revisit only after traffic is established; any later pilot should be confined to long guides and evaluated for revenue, usability, performance and consent requirements before launch.
