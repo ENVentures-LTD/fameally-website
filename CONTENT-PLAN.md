@@ -61,7 +61,7 @@ IDs 1–20 retain the original recommendation numbers; L1–L5 identify the five
 | 1 | Thu 2026-10-22 (evening) | [How to Reduce Food Waste at Home: A Practical UK Family Guide](#article-1) | Published | 2026-10-22 |
 | 2 | Fri 2026-10-23 | [How to Organise Your Shopping List by Supermarket Aisle](#article-2) | Published | 2026-10-24 |
 | 3 | Mon 2026-10-26 | [Should You Use AI to Plan Your Family Meals?](#article-3) | Published | 2026-10-26 |
-| 4 | Wed 2026-10-28 | [How to Plan Family Meals Around What You Already Have](#article-4) | Planned | |
+| 4 | Wed 2026-10-28 | [How to Plan Family Meals Around What You Already Have](#article-4) | Published | 2026-10-28 |
 | 5 | Fri 2026-10-30 | [How to Share a Shopping List Between iPhone and Android](#article-5) | Planned | |
 | 7 | Mon 2026-11-02 | [How to Stop Buying Duplicate Groceries](#article-7) | Planned | |
 | 9 | Wed 2026-11-04 | [How to Create a Master Grocery List for Your Household](#article-9) | Planned | |
@@ -123,7 +123,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Follow a household's unused spinach, half a loaf and leftover cooked meal through a weekly review, with safe reuse options verified during writing.
 - **Research and feature checks:** Verify any UK waste figures against original WRAP research and all storage/date advice against current FSA guidance. Present waste reduction as a possible benefit of a routine, not a measured Fameally result or automatic pantry feature.
 - **Existing links:** [Plan a cheaper family week](articles/cheap-family-meals-for-the-week-plan-before-you-shop.html); [Turn a meal plan into a shopping list](articles/how-to-turn-a-meal-plan-into-a-food-shopping-list.html).
-- **Planned companions:** [4: plan from existing food](#article-4); [10: plan around expiry dates](#article-10); [20: ingredient-led meal ideas](#article-20).
+- **Published companion:** [4: plan from existing food](articles/how-to-plan-family-meals-around-what-you-already-have.html).
+- **Planned companions:** [10: plan around expiry dates](#article-10); [20: ingredient-led meal ideas](#article-20).
 - **Publication record:** [Live article](https://fameally.com/articles/how-to-reduce-food-waste-at-home-a-practical-uk-family-guide.html), published **22 October 2026** in [release commit 69abebb](https://github.com/ENVentures-LTD/fameally-website/commit/69abebb26620f7a6bd03c85d635e4aebe342baf3). [Deployment and IndexNow notification](https://github.com/ENVentures-LTD/fameally-website/actions/runs/39850612722) succeeded; live content, dates, Guides listing and sitemap were verified before recording the actual date above.
 - **Archived review copy (prepared 22 October 2026):** [Excluded draft HTML](articles-upcoming/how-to-reduce-food-waste-at-home-a-practical-uk-family-guide.html); [review notes and checks](output/review/food-waste-20261022/REVIEW.md). These local, Git-ignored files preserve the prepublication review package; the live article is linked in the publication record.
 
@@ -170,7 +171,11 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Build three dinners around carrots, a freezer portion and a tin of beans, then show a short gaps-only shopping list without writing a complete recipe collection.
 - **Research and feature checks:** Verify food-date and storage advice with current FSA guidance. Show inventory checks as a manual routine unless released Fameally evidence confirms otherwise; verify saved-meal and shopping-list steps before describing them.
 - **Existing links:** [Keep a weekly plan adaptable](articles/how-to-make-a-weekly-meal-plan-that-survives-a-normal-uk-week.html); [Check supplies when making the list](articles/how-to-turn-a-meal-plan-into-a-food-shopping-list.html).
-- **Planned companions:** [1: reduce household food waste](#article-1); [10: prioritise dated food](#article-10); [20: find ingredient-led meal ideas](#article-20).
+- **Published companion:** [1: reduce household food waste](articles/how-to-reduce-food-waste-at-home-a-practical-uk-family-guide.html).
+- **Planned companions:** [10: prioritise dated food](#article-10); [20: find ingredient-led meal ideas](#article-20).
+- **Publication record:** [Live article](https://fameally.com/articles/how-to-plan-family-meals-around-what-you-already-have.html), published **28 October 2026** in [release commit 6316f53](https://github.com/ENVentures-LTD/fameally-website/commit/6316f53d002027d0cf96bd50f15c299706b06776). [Deployment and IndexNow notification](https://github.com/ENVentures-LTD/fameally-website/actions/runs/40764003503) succeeded. The approved article, visible publication date, social metadata, structured data, Guides listing and sitemap were verified live with the 28 October publication date.
+- **Archived review package (prepared 26 October 2026):** [Excluded draft HTML](articles-upcoming/how-to-plan-family-meals-around-what-you-already-have.html); [review notes and checks](output/review/ingredients-first-20261028/REVIEW.md). These Git-ignored local files preserve the approved review copy and publication checks; the live article is linked in the publication record.
+- **Evidence and scope:** Current FSA storage, date-label, defrosting and reheating guidance and Fameally's published workflow were checked on 26 October. Inventory checks remain manual. The three-dinner example allocates the existing food once and identifies four shopping gaps; it is illustrative, without tested recipes, prices or nutritional claims. Website checks and source details are recorded in the review notes.
 
 <a id="article-5"></a>
 
@@ -222,7 +227,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Plan the order of a dated chilled ingredient, frozen vegetables and cupboard staples, using current official guidance to determine what can safely be moved or stored.
 - **Research and feature checks:** Verify every label, storage, freezing and reheating statement with current FSA or Food Standards Scotland guidance. Do not recommend smell tests for use-by decisions. Make date checks manual unless released-product evidence confirms tracking; Due Soon is not evidence of expiry tracking.
 - **Existing links:** [Adjust meals when the week changes](articles/how-to-make-a-weekly-meal-plan-that-survives-a-normal-uk-week.html); [Check food before building the shop](articles/how-to-turn-a-meal-plan-into-a-food-shopping-list.html).
-- **Planned companions:** [4: plan from existing ingredients](#article-4); [1: wider waste-reduction routine](#article-1); [17: handle festive leftovers](#article-17).
+- **Published companions:** [4: plan from existing ingredients](articles/how-to-plan-family-meals-around-what-you-already-have.html); [1: wider waste-reduction routine](articles/how-to-reduce-food-waste-at-home-a-practical-uk-family-guide.html).
+- **Planned companion:** [17: handle festive leftovers](#article-17).
 
 <a id="article-6"></a>
 
@@ -378,7 +384,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Plan three dinner-only weeks for an illustrative household of two adults and two children, with quantities made explicit and checked during future recipe/resource development. Set budget amounts only after checking current baskets.
 - **Research and feature checks:** Record retailer, pricing date, pack sizes, portions, pantry items, meals included and substitutions. Verify recipes, quantities and safe leftovers before publication; do not imply nutritional completeness or guaranteed national prices. No meal-plan download is created by this roadmap.
 - **Existing links:** [Read practical budget planning advice](articles/cheap-family-meals-for-the-week-plan-before-you-shop.html); [Use the existing seven-day template](articles/a-7-day-family-meal-plan-template-for-a-practical-uk-week.html).
-- **Planned companions:** [13: measure possible savings](#article-13); [15: serving-size decisions](#article-15); [4: start with existing ingredients](#article-4).
+- **Published companion:** [4: start with existing ingredients](articles/how-to-plan-family-meals-around-what-you-already-have.html).
+- **Planned companions:** [13: measure possible savings](#article-13); [15: serving-size decisions](#article-15).
 
 <a id="article-20"></a>
 
@@ -391,7 +398,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Outline combinations such as a rice-and-vegetable dish or a bean-based jacket potato, specifying which ingredients are essential, optional or already safely prepared when the future article is developed.
 - **Research and feature checks:** Verify ingredient compatibility, preparation and leftover-storage advice. Identify ideas as suggestions rather than tested recipes unless tested. Do not imply Fameally automatically searches pantry contents or generates recipes from available ingredients without released-product evidence.
 - **Existing links:** [Keep a realistic backup dinner](articles/how-to-make-a-weekly-meal-plan-that-survives-a-normal-uk-week.html); [Use ingredients across a cheaper week](articles/cheap-family-meals-for-the-week-plan-before-you-shop.html).
-- **Planned companions:** [4: plan around existing food](#article-4); [10: use dated ingredients safely](#article-10); [12: save favourite combinations](#article-12).
+- **Published companion:** [4: plan around existing food](articles/how-to-plan-family-meals-around-what-you-already-have.html).
+- **Planned companions:** [10: use dated ingredients safely](#article-10); [12: save favourite combinations](#article-12).
 
 <a id="article-l3"></a>
 
