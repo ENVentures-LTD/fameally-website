@@ -62,9 +62,9 @@ IDs 1–20 retain the original recommendation numbers; L1–L5 identify the five
 | 2 | Fri 2026-10-23 | [How to Organise Your Shopping List by Supermarket Aisle](#article-2) | Published | 2026-10-24 |
 | 3 | Mon 2026-10-26 | [Should You Use AI to Plan Your Family Meals?](#article-3) | Published | 2026-10-26 |
 | 4 | Wed 2026-10-28 | [How to Plan Family Meals Around What You Already Have](#article-4) | Published | 2026-10-28 |
-| 5 | Fri 2026-10-30 | [How to Share a Shopping List Between iPhone and Android](#article-5) | Planned | |
-| 7 | Mon 2026-11-02 | [How to Stop Buying Duplicate Groceries](#article-7) | Planned | |
-| 9 | Wed 2026-11-04 | [How to Create a Master Grocery List for Your Household](#article-9) | Planned | |
+| 5 | Fri 2026-10-30 | [How to Share a Shopping List Between iPhone and Android](#article-5) | Published | 2026-11-04 |
+| 7 | Mon 2026-11-02 | [How to Stop Buying Duplicate Groceries](#article-7) | Published | 2026-11-04 |
+| 9 | Wed 2026-11-04 | [How to Create a Master Grocery List for Your Household](#article-9) | Published | 2026-11-04 |
 | 10 | Fri 2026-11-06 | [How to Plan Meals Around Expiry Dates](#article-10) | Planned | |
 | 6 | Mon 2026-11-09 | [How to Make a Monthly Family Meal Plan Without Starting From Scratch](#article-6) | Planned | |
 | L1 | Wed 2026-11-11 | [Paprika vs Fameally: Recipe Manager or Weekly Household Planner?](#article-l1) | Planned | |
@@ -139,7 +139,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Reorder a mixed list of apples, milk, rice, shampoo and frozen peas into a household's own supermarket sections, without claiming a universal aisle map.
 - **Research and feature checks:** Verify current store-aisle configuration, item ordering and access tier in Fameally before giving app steps. Do not promise automatic knowledge of a supermarket's physical layout or quantified time savings.
 - **Existing links:** [Build a shopping list from meals](articles/how-to-turn-a-meal-plan-into-a-food-shopping-list.html); [Compare household shopping-list apps](articles/best-shopping-list-apps-for-families-and-households.html).
-- **Planned companions:** [9: create a master grocery list](#article-9); [18: printable shopping checklist](#article-18).
+- **Published companion:** [9: create a master grocery list](articles/how-to-create-a-master-grocery-list-for-your-household.html).
+- **Planned companion:** [18: printable shopping checklist](#article-18).
 - **Publication record:** [Live article](https://fameally.com/articles/how-to-organise-your-shopping-list-by-supermarket-aisle.html), published **24 October 2026** in [release commit bd20d08](https://github.com/ENVentures-LTD/fameally-website/commit/bd20d08c1a47d8eb0cad7ca1d767c8ff762c2bcc). [Deployment and IndexNow notification](https://github.com/ENVentures-LTD/fameally-website/actions/runs/40127432270) succeeded. The visible publication date, social metadata, structured data, Guides listing and sitemap were aligned to 24 October and verified live; the original 23 October target remains unchanged.
 - **Archived review package (prepared 22 October 2026):** [Local draft HTML](articles-upcoming/how-to-organise-your-shopping-list-by-supermarket-aisle.html); [review notes and checks](output/review/aisle-shopping-20261023/REVIEW.md). These Git-ignored local files retain the review history and approved release package; the live article is linked in the publication record.
 - **Evidence checked:** Fameally's current published pricing confirms aisle sorting in Individual and Family; the article uses a general workflow without unverified configuration steps or store-map claims. Current FSA shopping guidance supports collecting chilled and frozen food last. Source links and the 22 October check date are recorded in the review copy.
@@ -188,7 +189,11 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** One person adds milk on an iPhone while another checks the same household list on Android; plan to verify both devices and the correct shared workspace during the future walkthrough.
 - **Research and feature checks:** Verify released iOS/Android versions, Family access, invitation acceptance, accounts and permissions. Test synchronisation and any connectivity advice before claiming behaviour; use official sources for alternative apps mentioned.
 - **Existing links:** [Understand shared family planning](articles/shared-meal-planning-app-for-families.html); [Compare shared shopping-list apps](articles/best-shopping-list-apps-for-families-and-households.html).
-- **Planned companions:** [7: prevent duplicate purchases](#article-7); [L4: prevent forgotten items](#article-l4); [11: share shopping as a couple](#article-11).
+- **Published companion:** [7: prevent duplicate purchases](articles/how-to-stop-buying-duplicate-groceries.html).
+- **Planned companions:** [L4: prevent forgotten items](#article-l4); [11: share shopping as a couple](#article-11).
+- **Publication record:** [Live article](https://fameally.com/articles/how-to-share-a-shopping-list-between-iphone-and-android.html), published **4 November 2026** in [joint release commit e0cff68](https://github.com/ENVentures-LTD/fameally-website/commit/e0cff688327c6b53426af894602edba420f7ea36). [Deployment and IndexNow notification](https://github.com/ENVentures-LTD/fameally-website/actions/runs/41906397304) succeeded. The approved copy, visible date, metadata, Guides entry, companion links and sitemap were verified live. The original 2026-10-30 target remains unchanged.
+- **Archived review package (prepared 4 November 2026):** [Excluded draft HTML](articles-upcoming/how-to-share-a-shopping-list-between-iphone-and-android.html); [batch review notes and checks](output/review/catch-up-20261104/REVIEW.md). These Git-ignored local files preserve the approved three-article package; use the live article linked above.
+- **Evidence and scope:** Current official store listings and Fameally support/pricing confirm cross-platform availability, Family access, invited-email sign-in, invitation acceptance and shared-workspace checks. Google Keep instructions were checked for both platforms. The milk example is a reader-run setup check; no physical paired-device test, update-speed result or offline guarantee is claimed.
 
 <a id="article-7"></a>
 
@@ -201,7 +206,11 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** One person puts rice on the list while another finds an unopened bag, then show the agreed update before either person shops.
 - **Research and feature checks:** Verify current shared-list editing and completion behaviour. Do not claim Fameally detects cupboard stock, recognises all duplicate items or prevents simultaneous purchases automatically; treat purchase-pattern suggestions as prompts to check.
 - **Existing links:** [Combine meal ingredients carefully](articles/how-to-turn-a-meal-plan-into-a-food-shopping-list.html); [Check regular household supplies](articles/the-easiest-way-to-stop-forgetting-regular-household-shopping-items.html).
-- **Planned companions:** [5: cross-platform list setup](#article-5); [9: personalised master list](#article-9); [L4: prevent omissions](#article-l4).
+- **Published companions:** [5: cross-platform list setup](articles/how-to-share-a-shopping-list-between-iphone-and-android.html); [9: personalised master list](articles/how-to-create-a-master-grocery-list-for-your-household.html).
+- **Planned companion:** [L4: prevent omissions](#article-l4).
+- **Publication record:** [Live article](https://fameally.com/articles/how-to-stop-buying-duplicate-groceries.html), published **4 November 2026** in [joint release commit e0cff68](https://github.com/ENVentures-LTD/fameally-website/commit/e0cff688327c6b53426af894602edba420f7ea36). [Deployment and IndexNow notification](https://github.com/ENVentures-LTD/fameally-website/actions/runs/41906397304) succeeded. The approved copy, visible date, metadata, Guides entry, companion links and sitemap were verified live. The original 2026-11-02 target remains unchanged.
+- **Archived review package (prepared 4 November 2026):** [Excluded draft HTML](articles-upcoming/how-to-stop-buying-duplicate-groceries.html); [batch review notes and checks](output/review/catch-up-20261104/REVIEW.md). These Git-ignored local files preserve the approved three-article package; use the live article linked above.
+- **Evidence and scope:** The rice example compares 600 g required with 900 g available, leaving 300 g and no rice purchase. Stock checks and buying responsibilities remain manual. Current sharing and Due Soon guidance was checked; no automatic stock detection, simultaneous-purchase prevention or measured saving is claimed.
 
 <a id="article-9"></a>
 
@@ -214,7 +223,11 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** A household builds breakfast, packed-lunch, cleaning and toiletries groups, then chooses only the items that are running low for this week's shop.
 - **Research and feature checks:** Verify how Fameally currently represents regular items, categories and reusable lists. Describe a manual master-list method if no direct workflow exists; do not imply permanent stock counts or automatic restocking.
 - **Existing links:** [Remember regular household essentials](articles/the-easiest-way-to-stop-forgetting-regular-household-shopping-items.html); [Connect the baseline with meal ingredients](articles/how-to-turn-a-meal-plan-into-a-food-shopping-list.html).
-- **Planned companions:** [18: printable checklist](#article-18); [2: organise the current list by aisle](#article-2); [7: avoid duplicate buying](#article-7).
+- **Published companions:** [2: organise the current list by aisle](articles/how-to-organise-your-shopping-list-by-supermarket-aisle.html); [7: avoid duplicate buying](articles/how-to-stop-buying-duplicate-groceries.html).
+- **Planned companion:** [18: printable checklist](#article-18).
+- **Publication record:** [Live article](https://fameally.com/articles/how-to-create-a-master-grocery-list-for-your-household.html), published **4 November 2026** in [joint release commit e0cff68](https://github.com/ENVentures-LTD/fameally-website/commit/e0cff688327c6b53426af894602edba420f7ea36). [Deployment and IndexNow notification](https://github.com/ENVentures-LTD/fameally-website/actions/runs/41906397304) succeeded. The approved copy, visible date, metadata, Guides entry, companion links and sitemap were verified live. The original 2026-11-04 target remains unchanged.
+- **Archived review package (prepared 4 November 2026):** [Excluded draft HTML](articles-upcoming/how-to-create-a-master-grocery-list-for-your-household.html); [batch review notes and checks](output/review/catch-up-20261104/REVIEW.md). These Git-ignored local files preserve the approved three-article package; use the live article linked above.
+- **Evidence and scope:** Four example groups hold eight regular items, of which three are selected for the current shop. The master remains a manual reference, with verified regular-item features described separately. No dedicated master-list screen, automatic stock counts or downloadable checklist is promised.
 
 <a id="article-10"></a>
 
@@ -293,7 +306,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** One partner cooks on Tuesday while the other shops on Monday, then show how they communicate a late work finish and use the agreed backup meal.
 - **Research and feature checks:** Verify shared access, plan changes and recipe information in Fameally before showing steps. Present task ownership as a household agreement unless the app has a verified assignment feature; do not assume all couples have the same division of work.
 - **Existing links:** [Share a family meal plan and list](articles/shared-meal-planning-app-for-families.html); [Build a plan that can change](articles/how-to-make-a-weekly-meal-plan-that-survives-a-normal-uk-week.html).
-- **Planned companions:** [5: share across phones](#article-5); [7: avoid duplicate groceries](#article-7); [14: accommodate different preferences](#article-14).
+- **Published companions:** [5: share across phones](articles/how-to-share-a-shopping-list-between-iphone-and-android.html); [7: avoid duplicate groceries](articles/how-to-stop-buying-duplicate-groceries.html).
+- **Planned companion:** [14: accommodate different preferences](#article-14).
 
 <a id="article-16"></a>
 
@@ -306,7 +320,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Plan Christmas Day for six and a smaller Boxing Day meal, covering missing breakfast items, household extras and freezer space as well as the main dinner.
 - **Research and feature checks:** Use current FSA or Food Standards Scotland festive guidance for storage, preparation, dates and allergens. Date-check any retailer or delivery information if included. Verify Fameally's list organisation before describing it; do not promise a downloadable checklist here.
 - **Existing links:** [Remember household essentials](articles/the-easiest-way-to-stop-forgetting-regular-household-shopping-items.html); [Build a shopping list from planned meals](articles/how-to-turn-a-meal-plan-into-a-food-shopping-list.html).
-- **Planned companions:** [17: Christmas leftovers](#article-17); [9: master household list](#article-9); [15: serving sizes](#article-15).
+- **Published companion:** [9: master household list](articles/how-to-create-a-master-grocery-list-for-your-household.html).
+- **Planned companions:** [17: Christmas leftovers](#article-17); [15: serving sizes](#article-15).
 
 <a id="article-12"></a>
 
@@ -332,7 +347,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Compare two labelled illustrative household weeks using receipts, wasted food and top-up purchases, avoiding double-counting the same food as both waste and an avoided purchase.
 - **Research and feature checks:** Verify original WRAP or official UK spending evidence, dates and populations. Do not convert national averages into a guaranteed household saving or attribute causal savings to Fameally without evidence. Include any app cost only if comparing net savings, using current verified prices.
 - **Existing links:** [Plan cheaper family meals](articles/cheap-family-meals-for-the-week-plan-before-you-shop.html); [Consider value when choosing an app](articles/what-to-look-for-in-a-family-meal-planning-app.html).
-- **Planned companions:** [1: reduce food waste](#article-1); [7: avoid duplicate purchases](#article-7); [19: budget meal-plan examples](#article-19).
+- **Published companions:** [1: reduce food waste](articles/how-to-reduce-food-waste-at-home-a-practical-uk-family-guide.html); [7: avoid duplicate purchases](articles/how-to-stop-buying-duplicate-groceries.html).
+- **Planned companion:** [19: budget meal-plan examples](#article-19).
 
 <a id="article-14"></a>
 
@@ -371,7 +387,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Describe a future A4 sheet with groceries, toiletries, cleaning and general essentials, tick spaces and blank additions. Demonstrate selecting current needs rather than buying every printed item.
 - **Research and feature checks:** Future resource production must verify UK terminology, A4 print legibility, download access without an account and a working public file. Define free access clearly and avoid claiming the download exists during roadmap work. Verify any digital workflow separately.
 - **Existing links:** [Use a household essentials checklist](articles/the-easiest-way-to-stop-forgetting-regular-household-shopping-items.html); [Compare paper planning with an app](articles/printable-weekly-meal-planner-vs-meal-planning-app.html).
-- **Planned companions:** [9: create a master grocery list](#article-9); [2: arrange items by aisle](#article-2); [16: Christmas-specific checklist](#article-16).
+- **Published companions:** [2: arrange items by aisle](articles/how-to-organise-your-shopping-list-by-supermarket-aisle.html); [9: create a master grocery list](articles/how-to-create-a-master-grocery-list-for-your-household.html).
+- **Planned companion:** [16: Christmas-specific checklist](#article-16).
 
 <a id="article-19"></a>
 
@@ -425,7 +442,7 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Replace a verbal request for washing-up liquid with an agreed list entry and a clear shopping handover, then consider what happens when the shopper has already checked out.
 - **Research and feature checks:** Frame the title's benefit as a possible result of consistent use, not a guarantee or quantified causal finding. Verify synchronisation, access and connectivity behaviour before giving app instructions; do not claim instant delivery under every condition.
 - **Existing links:** [Remember regular household items](articles/the-easiest-way-to-stop-forgetting-regular-household-shopping-items.html); [Coordinate a shared family list](articles/shared-meal-planning-app-for-families.html).
-- **Planned companions:** [5: set up iPhone and Android sharing](#article-5); [7: prevent duplicate purchases](#article-7); [9: build the household baseline](#article-9).
+- **Published companions:** [5: set up iPhone and Android sharing](articles/how-to-share-a-shopping-list-between-iphone-and-android.html); [7: prevent duplicate purchases](articles/how-to-stop-buying-duplicate-groceries.html); [9: build the household baseline](articles/how-to-create-a-master-grocery-list-for-your-household.html).
 
 <a id="article-17"></a>
 
