@@ -65,8 +65,8 @@ IDs 1–20 retain the original recommendation numbers; L1–L5 identify the five
 | 5 | Fri 2026-10-30 | [How to Share a Shopping List Between iPhone and Android](#article-5) | Published | 2026-11-04 |
 | 7 | Mon 2026-11-02 | [How to Stop Buying Duplicate Groceries](#article-7) | Published | 2026-11-04 |
 | 9 | Wed 2026-11-04 | [How to Create a Master Grocery List for Your Household](#article-9) | Published | 2026-11-04 |
-| 10 | Fri 2026-11-06 | [How to Plan Meals Around Expiry Dates](#article-10) | Planned | |
-| 6 | Mon 2026-11-09 | [How to Make a Monthly Family Meal Plan Without Starting From Scratch](#article-6) | Planned | |
+| 10 | Fri 2026-11-06 | [How to Plan Meals Around Expiry Dates](#article-10) | Published | 2026-11-09 |
+| 6 | Mon 2026-11-09 | [How to Make a Monthly Family Meal Plan Without Starting From Scratch](#article-6) | Published | 2026-11-09 |
 | L1 | Wed 2026-11-11 | [Paprika vs Fameally: Recipe Manager or Weekly Household Planner?](#article-l1) | Planned | |
 | 8 | Fri 2026-11-13 | [Meal Planning for Picky Eaters: A Flexible Family Approach](#article-8) | Planned | |
 | L2 | Mon 2026-11-16 | [Cozi vs Fameally: Family Organiser or Meal Planning App?](#article-l2) | Planned | |
@@ -123,8 +123,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Follow a household's unused spinach, half a loaf and leftover cooked meal through a weekly review, with safe reuse options verified during writing.
 - **Research and feature checks:** Verify any UK waste figures against original WRAP research and all storage/date advice against current FSA guidance. Present waste reduction as a possible benefit of a routine, not a measured Fameally result or automatic pantry feature.
 - **Existing links:** [Plan a cheaper family week](articles/cheap-family-meals-for-the-week-plan-before-you-shop.html); [Turn a meal plan into a shopping list](articles/how-to-turn-a-meal-plan-into-a-food-shopping-list.html).
-- **Published companion:** [4: plan from existing food](articles/how-to-plan-family-meals-around-what-you-already-have.html).
-- **Planned companions:** [10: plan around expiry dates](#article-10); [20: ingredient-led meal ideas](#article-20).
+- **Published companions:** [4: plan from existing food](articles/how-to-plan-family-meals-around-what-you-already-have.html); [10: plan around expiry dates](articles/how-to-plan-meals-around-expiry-dates.html).
+- **Planned companion:** [20: ingredient-led meal ideas](#article-20).
 - **Publication record:** [Live article](https://fameally.com/articles/how-to-reduce-food-waste-at-home-a-practical-uk-family-guide.html), published **22 October 2026** in [release commit 69abebb](https://github.com/ENVentures-LTD/fameally-website/commit/69abebb26620f7a6bd03c85d635e4aebe342baf3). [Deployment and IndexNow notification](https://github.com/ENVentures-LTD/fameally-website/actions/runs/39850612722) succeeded; live content, dates, Guides listing and sitemap were verified before recording the actual date above.
 - **Archived review copy (prepared 22 October 2026):** [Excluded draft HTML](articles-upcoming/how-to-reduce-food-waste-at-home-a-practical-uk-family-guide.html); [review notes and checks](output/review/food-waste-20261022/REVIEW.md). These local, Git-ignored files preserve the prepublication review package; the live article is linked in the publication record.
 
@@ -156,7 +156,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Compare a suggestion-based week with a saved family week using the same busy evenings, food already available and meal preferences. Label any future trial with its tool, date and method.
 - **Research and feature checks:** Verify current capabilities and limitations from official documentation for any named AI tool. Check safety and dietary advice against UK authorities; do not rely on generated claims, prices or allergy assurances. Verify Fameally's actual planning workflow independently.
 - **Existing links:** [Compare planning apps with notes](articles/meal-planning-app-vs-notes-app.html); [Build a repeatable family routine](articles/family-meal-planning-for-busy-households-a-simple-repeatable-system.html).
-- **Planned companions:** [6: reuse weekly patterns across a month](#article-6); [14: accommodate different preferences](#article-14); [L5: choose a category of tool](#article-l5).
+- **Published companion:** [6: reuse weekly patterns across a month](articles/how-to-make-a-monthly-family-meal-plan-without-starting-from-scratch.html).
+- **Planned companions:** [14: accommodate different preferences](#article-14); [L5: choose a category of tool](#article-l5).
 - **Publication record:** [Live article](https://fameally.com/articles/should-you-use-ai-to-plan-your-family-meals.html), published **26 October 2026** in [release commit c9abd7e](https://github.com/ENVentures-LTD/fameally-website/commit/c9abd7e11fd841d2af9b18e978b3c1b2f9f3dda6). [Deployment and IndexNow notification](https://github.com/ENVentures-LTD/fameally-website/actions/runs/40401256562) succeeded. The visible publication date, social metadata, structured data, Guides listing and sitemap were verified live with the 26 October publication date.
 - **Archived review package (prepared 24 October 2026):** [Local draft HTML](articles-upcoming/should-you-use-ai-to-plan-your-family-meals.html); [review notes and checks](output/review/ai-meal-planning-20261026/REVIEW.md). These Git-ignored local files retain the review history and approved release package; the live article is linked in the publication record.
 - **Evidence and scope:** Official OpenAI documentation, current FSA/NHS guidance and Fameally's published workflow and access tiers were checked on 24 October. The five-evening comparison is an explicitly labelled illustration, not a live AI product test, a costed basket or a nutritional assessment. No AI-generation feature is attributed to Fameally. Source links, limits and completed website checks are recorded in the review notes.
@@ -172,8 +173,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Build three dinners around carrots, a freezer portion and a tin of beans, then show a short gaps-only shopping list without writing a complete recipe collection.
 - **Research and feature checks:** Verify food-date and storage advice with current FSA guidance. Show inventory checks as a manual routine unless released Fameally evidence confirms otherwise; verify saved-meal and shopping-list steps before describing them.
 - **Existing links:** [Keep a weekly plan adaptable](articles/how-to-make-a-weekly-meal-plan-that-survives-a-normal-uk-week.html); [Check supplies when making the list](articles/how-to-turn-a-meal-plan-into-a-food-shopping-list.html).
-- **Published companion:** [1: reduce household food waste](articles/how-to-reduce-food-waste-at-home-a-practical-uk-family-guide.html).
-- **Planned companions:** [10: prioritise dated food](#article-10); [20: find ingredient-led meal ideas](#article-20).
+- **Published companions:** [1: reduce household food waste](articles/how-to-reduce-food-waste-at-home-a-practical-uk-family-guide.html); [10: prioritise dated food](articles/how-to-plan-meals-around-expiry-dates.html).
+- **Planned companion:** [20: find ingredient-led meal ideas](#article-20).
 - **Publication record:** [Live article](https://fameally.com/articles/how-to-plan-family-meals-around-what-you-already-have.html), published **28 October 2026** in [release commit 6316f53](https://github.com/ENVentures-LTD/fameally-website/commit/6316f53d002027d0cf96bd50f15c299706b06776). [Deployment and IndexNow notification](https://github.com/ENVentures-LTD/fameally-website/actions/runs/40764003503) succeeded. The approved article, visible publication date, social metadata, structured data, Guides listing and sitemap were verified live with the 28 October publication date.
 - **Archived review package (prepared 26 October 2026):** [Excluded draft HTML](articles-upcoming/how-to-plan-family-meals-around-what-you-already-have.html); [review notes and checks](output/review/ingredients-first-20261028/REVIEW.md). These Git-ignored local files preserve the approved review copy and publication checks; the live article is linked in the publication record.
 - **Evidence and scope:** Current FSA storage, date-label, defrosting and reheating guidance and Fameally's published workflow were checked on 26 October. Inventory checks remain manual. The three-dinner example allocates the existing food once and identifies four shopping gaps; it is illustrative, without tested recipes, prices or nutritional claims. Website checks and source details are recorded in the review notes.
@@ -242,6 +243,10 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Existing links:** [Adjust meals when the week changes](articles/how-to-make-a-weekly-meal-plan-that-survives-a-normal-uk-week.html); [Check food before building the shop](articles/how-to-turn-a-meal-plan-into-a-food-shopping-list.html).
 - **Published companions:** [4: plan from existing ingredients](articles/how-to-plan-family-meals-around-what-you-already-have.html); [1: wider waste-reduction routine](articles/how-to-reduce-food-waste-at-home-a-practical-uk-family-guide.html).
 - **Planned companion:** [17: handle festive leftovers](#article-17).
+- **Publication record:** [Live article](https://fameally.com/articles/how-to-plan-meals-around-expiry-dates.html), published **9 November 2026** in [joint release commit 3f748b1](https://github.com/ENVentures-LTD/fameally-website/commit/3f748b1a9691e18d69bd76ba2859bf0db9b3cc4f). [Deployment and IndexNow notification](https://github.com/ENVentures-LTD/fameally-website/actions/runs/42694308147) succeeded. The approved copy, visible publication date, metadata, Guides listing, incoming and companion links and sitemap were verified live. The original 2026-11-06 target remains unchanged.
+- **Archived review package (prepared 9 November 2026):** [Excluded draft HTML](articles-upcoming/how-to-plan-meals-around-expiry-dates.html); [review notes and checks](output/review/november-pair-20261109/REVIEW.md). These local, Git-ignored files preserve the approved two-article review package; use the live article linked above.
+- **Draft evidence:** Current FSA and GOV.UK date-label, opening, storage, freezing and leftovers guidance checked on 9 November. Food dates are checked manually; Due Soon remains purchase-pattern guidance. The draft includes a three-evening example.
+
 
 <a id="article-6"></a>
 
@@ -254,7 +259,12 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Combine four weekly patterns for a household with late Mondays and a flexible Friday, then change one week for a school event without rebuilding the whole month.
 - **Research and feature checks:** Verify current saved-plan, reuse and editing behaviour in the released app. Distinguish a monthly overview from weekly shopping; do not claim automatic calendar rotation or a monthly screen without evidence.
 - **Existing links:** [Reuse a practical seven-day template](articles/a-7-day-family-meal-plan-template-for-a-practical-uk-week.html); [Build a repeatable family system](articles/family-meal-planning-for-busy-households-a-simple-repeatable-system.html).
-- **Planned companions:** [12: organise favourite recipes](#article-12); [3: assess AI meal suggestions](#article-3); [14: accommodate household preferences](#article-14).
+- **Published companion:** [3: assess AI meal suggestions](articles/should-you-use-ai-to-plan-your-family-meals.html).
+- **Planned companions:** [12: organise favourite recipes](#article-12); [14: accommodate household preferences](#article-14).
+- **Publication record:** [Live article](https://fameally.com/articles/how-to-make-a-monthly-family-meal-plan-without-starting-from-scratch.html), published **9 November 2026** in [joint release commit 3f748b1](https://github.com/ENVentures-LTD/fameally-website/commit/3f748b1a9691e18d69bd76ba2859bf0db9b3cc4f). [Deployment and IndexNow notification](https://github.com/ENVentures-LTD/fameally-website/actions/runs/42694308147) succeeded. The approved copy, visible publication date, metadata, Guides listing, incoming and companion links and sitemap were verified live. The original 2026-11-09 target remains unchanged.
+- **Archived review package (prepared 9 November 2026):** [Excluded draft HTML](articles-upcoming/how-to-make-a-monthly-family-meal-plan-without-starting-from-scratch.html); [review notes and checks](output/review/november-pair-20261109/REVIEW.md). These local, Git-ignored files preserve the approved two-article review package; use the live article linked above.
+- **Draft evidence:** Current website and App Store descriptions support reusable weekly plans; Individual and Family include saving full weeks. The draft assembles a four-week manual overview and a weekly food check without claiming a dedicated monthly interface or automatic calendar rotation.
+
 
 <a id="article-l1"></a>
 
@@ -334,7 +344,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Organise a small collection by quick evenings, freezer-friendly choices and family favourites, verifying which labels and filters the chosen tool actually supports.
 - **Research and feature checks:** Verify current recipe-URL import, preview/review, notes, search, categories and tag behaviour in Fameally before giving instructions. Do not imply every website imports successfully or that user-defined tags exist without evidence. Keep attribution and source links for imported recipes.
 - **Existing links:** [Choose reusable meal features](articles/what-to-look-for-in-a-family-meal-planning-app.html); [Build a repeatable meal library and routine](articles/family-meal-planning-for-busy-households-a-simple-repeatable-system.html).
-- **Planned companions:** [6: reuse weekly patterns](#article-6); [L1: Paprika comparison](#article-l1); [L5: choose between tool categories](#article-l5).
+- **Published companion:** [6: reuse weekly patterns](articles/how-to-make-a-monthly-family-meal-plan-without-starting-from-scratch.html).
+- **Planned companions:** [L1: Paprika comparison](#article-l1); [L5: choose between tool categories](#article-l5).
 
 <a id="article-13"></a>
 
@@ -415,8 +426,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Outline combinations such as a rice-and-vegetable dish or a bean-based jacket potato, specifying which ingredients are essential, optional or already safely prepared when the future article is developed.
 - **Research and feature checks:** Verify ingredient compatibility, preparation and leftover-storage advice. Identify ideas as suggestions rather than tested recipes unless tested. Do not imply Fameally automatically searches pantry contents or generates recipes from available ingredients without released-product evidence.
 - **Existing links:** [Keep a realistic backup dinner](articles/how-to-make-a-weekly-meal-plan-that-survives-a-normal-uk-week.html); [Use ingredients across a cheaper week](articles/cheap-family-meals-for-the-week-plan-before-you-shop.html).
-- **Published companion:** [4: plan around existing food](articles/how-to-plan-family-meals-around-what-you-already-have.html).
-- **Planned companions:** [10: use dated ingredients safely](#article-10); [12: save favourite combinations](#article-12).
+- **Published companions:** [4: plan around existing food](articles/how-to-plan-family-meals-around-what-you-already-have.html); [10: use dated ingredients safely](articles/how-to-plan-meals-around-expiry-dates.html).
+- **Planned companion:** [12: save favourite combinations](#article-12).
 
 <a id="article-l3"></a>
 
@@ -429,7 +440,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Map one person's remembered dinners and missing ingredients into a simple visible week, then show the information a second cook or shopper would need.
 - **Research and feature checks:** Keep examples illustrative and avoid unsupported psychological, stress-reduction or time-saving claims. Verify the released Fameally workflow used; acknowledge that a simple written plan may meet some households' needs.
 - **Existing links:** [Compare an app with a notes-based plan](articles/meal-planning-app-vs-notes-app.html); [Build a repeatable family planning routine](articles/family-meal-planning-for-busy-households-a-simple-repeatable-system.html).
-- **Planned companions:** [L5: select a tool category](#article-l5); [11: share cooking and shopping](#article-11); [6: reuse a successful week](#article-6).
+- **Published companion:** [6: reuse a successful week](articles/how-to-make-a-monthly-family-meal-plan-without-starting-from-scratch.html).
+- **Planned companions:** [L5: select a tool category](#article-l5); [11: share cooking and shopping](#article-11).
 
 <a id="article-l4"></a>
 
@@ -455,7 +467,8 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Practical example:** Describe a potential sequence for leftover cooked poultry and vegetables, with timing, storage and reheating details supplied only after checking current official guidance during writing.
 - **Research and feature checks:** Check current FSA or Food Standards Scotland Christmas, poultry, chilling, freezing and reheating guidance. Do not extrapolate one storage rule to every food. Verify any Fameally meal-note or plan-editing steps; avoid implying food-safety monitoring by the app.
 - **Existing links:** [Adapt a plan when meals change](articles/how-to-make-a-weekly-meal-plan-that-survives-a-normal-uk-week.html); [Plan leftovers as part of a budget week](articles/cheap-family-meals-for-the-week-plan-before-you-shop.html).
-- **Planned companions:** [16: festive shopping checklist](#article-16); [10: date-led decisions](#article-10); [20: ingredient-led meal ideas](#article-20).
+- **Published companion:** [10: date-led decisions](articles/how-to-plan-meals-around-expiry-dates.html).
+- **Planned companions:** [16: festive shopping checklist](#article-16); [20: ingredient-led meal ideas](#article-20).
 
 <a id="article-l5"></a>
 
