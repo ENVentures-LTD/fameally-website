@@ -23,6 +23,7 @@ Requires Node.js 22.16+ (or 24+).
 node scripts/validate-site.mjs
 node scripts/test-article-share.mjs
 node --test scripts/test-site-files.mjs scripts/test-indexnow.mjs
+node --test scripts/test-help-library.mjs
 node --test scripts/test-indexnow.mjs
 node scripts/build-site.mjs
 node scripts/validate-site.mjs _site
@@ -36,6 +37,7 @@ $env:NODE_PATH = (Resolve-Path output/review/tools/node_modules).Path
 $env:SITE_URL = 'http://127.0.0.1:8766'
 node scripts/test-browser.mjs
 node scripts/test-article-share-browser.mjs
+node scripts/test-help-browser.mjs
 ```
 
 Set `BROWSER_CHANNEL` to another installed Playwright browser channel if needed. Browser reports and screenshots are saved in the ignored `output/review/browser` directory. The checks cover all public pages at 360, 390, 768 and 1440 pixels in light and dark modes, plus representative axe audits, keyboard navigation, the no-JavaScript menu fallback, reduced motion, 200% CSS zoom, the PDF and store links.
@@ -61,7 +63,7 @@ emulator running Fameally 1.9.77. Its existing demonstration household supplies
 the displayed purchase patterns; capture provenance is recorded in
 `output/review/captures/due-soon-provenance.json`.
 
-Every Guide and Product Update detail page uses `assets/article-share.js`.
+Every Guide, App Help tutorial and Product Update detail page uses `assets/article-share.js`.
 Keep one Share control beside the article metadata, a polite status message,
 and a canonical manual-copy input for clipboard failures and no-JavaScript
 visitors. The icons reuse the app's Heroicons paths: ArrowUpOnSquare on
@@ -73,7 +75,7 @@ All page metadata belongs in the document head with no duplicate tags. Social
 titles, descriptions, URLs and image fields must agree with the canonical page
 metadata. Keep page-specific structured data grounded in visible content.
 The publication gate checks duplicate Published/Updated dates on every public
-page, including newly discovered Guides, Updates and Resources. Articles must
+page, including newly discovered Guides, Updates, Resources and Help. Articles and tutorials must
 show one original publication date and at most one latest meaningful update;
 other pages may remain undated. New root pages or sections must be added to
 the explicit publication boundary in `scripts/site-files.mjs`, after which the
@@ -84,6 +86,20 @@ same validation applies automatically.
 ### Updates, Resources and entity maintenance
 
 Published Updates live in `updates/`, with `/updates/` as the index canonical and `.html` post URLs. Resources uses `/resources/`; existing article canonicals and the printable PDF URL remain unchanged. Keep drafts outside all published directories. Every HTML file in `articles/`, `updates/` and `resources/` is included by `scripts/site-files.mjs`. Documentation, including `CONTENT-PLAN.md`, remains excluded.
+
+### App Help and local review
+
+App instructions live in `help/`: the hub canonical is `/help/` and tutorials use `/help/<slug>.html`. The hub is organised by task, with only populated categories and real tutorial links. Keep its visible links and `CollectionPage`/`ItemList` data in sync; each tutorial uses `Article` and Home → Help → Tutorial breadcrumbs. Help now occupies the former Support navigation slot; `/support.html` remains the Contact support destination. Existing article and download URLs are unchanged.
+
+Every HTML file directly inside `help/` is included by the explicit build boundary. Keep unfinished future tutorials in ignored `help-upcoming/` or `output/review/`, never alongside release-candidate pages. Build, validation, sitemap and IndexNow handling recognise the hub and tutorial routes; IndexNow tests use mocked requests and do not submit anything.
+
+The [Help hub](https://fameally.com/help/) and [getting-started tutorial](https://fameally.com/help/getting-started.html) launched on 11 November 2026. Align visible, social and structured dates to the actual release date. Record Published and the actual date in the roadmap after verifying deployment. Keep app verification and review evidence in ignored \`output/review/\` directories and identify the app version and platform checked.
+
+T1's two `screenshot-help-first-*` images are real captures from Fameally 1.9.77 on Android 14, taken on 9 November 2026 in a temporary emulator profile. They retain the app's purple first-run appearance in both website themes. Their responsive WebPs use the same 320/640/900 widths as other screenshots; do not fabricate a second app appearance. The screenshot checks distinguish these fixed-appearance pictures from existing theme-aware screenshot pairs. Raw captures, hashes and verification coverage are recorded under `output/review/help-t1/`.
+
+After changing a tutorial, run the same static, sharing, publication-boundary, IndexNow and browser checks listed above. Both Help pages are included in representative accessibility and no-JavaScript browser checks; tutorial sharing is tested with the other article pages. Use the local preview and review notes before a separately authorised push to `main`.
+
+### Editorial release checks
 
 For each update: write the page using the existing editorial layout; add it to the index and its JSON-LD ItemList in descending **publication** date order; add its canonical URL to the sitemap; then run all checks. Include a summary, visible byline, publication date, matching BlogPosting/BreadcrumbList data and relevant contextual links. On first publication, dateModified equals datePublished; show a separate updated date only for a meaningful later edit. Never change an old publication date to promote a post. The introductory post is prepared for 28 September 2026: if publication happens later, update its visible/index/schema dates and new-page sitemap dates together before release.
 

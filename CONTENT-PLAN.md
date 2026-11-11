@@ -2,14 +2,31 @@
 
 Fameally owns household meal-planning, recipe, shopping and food-organisation content. ENVentures owns its company information, product portfolio and genuine development stories. These are editorial opportunities, not measured keyword-volume claims.
 
-This is the authoritative Fameally editorial roadmap. It combines the 20 recommended topics with five unpublished topics from the older active queue. Use the [publication calendar](#publication-calendar) and linked briefs whenever planning the next article. Historical releases and archived ideas remain in the existing, Git-ignored local reference [planned-articles.txt](articles-upcoming/planned-articles.txt); the active calendar and briefs are maintained here in the repository.
+This is the authoritative Fameally editorial roadmap. It combines the 20 recommended article topics, five topics from the older active queue and 18 app tutorials: **43 topics in total**. The revision agreed on **9 November 2026** preserves nine published records and schedules the remaining **34 entries** through **1 February 2027**. Use the [publication calendar](#publication-calendar) and linked briefs whenever planning the next article or tutorial. Historical releases and archived ideas remain in the existing, Git-ignored local reference [planned-articles.txt](articles-upcoming/planned-articles.txt); the active calendar and briefs are maintained here in the repository.
 
 ## Section purposes
 
-- `/articles/index.html`: practical evergreen guides and search-focused advice. Keep all existing URLs.
+- `/articles/index.html`: practical evergreen advice, household routines and app comparisons. Keep the existing routes into planning, shopping and comparisons, and all existing URLs.
+- `/help/`: the app-help hub titled **How to use Fameally**, organised by task; tutorials use `/help/<slug>.html`.
+- `/support.html`: contact support, account assistance and escalation, with links to relevant tutorials when they are available.
 - `/updates/`: meaningful first-party product news; posts at `/updates/<slug>.html`. No artificial publishing schedule.
 - `/resources/`: useful downloads with no account required. Start with the existing A4 planner. Future substantial resources can use `/resources/<slug>.html`; do not publish placeholders.
 - Homepage product, family, pricing and download anchors remain the product destinations.
+
+### Site structure evaluation and help library
+
+The existing Guides index already offers routes into planning, shopping and app comparisons. Retain that discovery structure. App tutorials serve a different reader need: completing a specific action or resolving a problem in Fameally. Give them a dedicated help library rather than expanding the general-advice feed with interface instructions.
+
+The hub launched with T1 and shared Help navigation on **11 November 2026**. Use this structure as new categories and tutorials become available.
+
+- Replace the primary **Support** link with **Help**, pointing to `/help/`. Keep **Contact support** prominent in the hub and footer, linking to the existing `/support.html` page.
+- Group the hub by **Getting started** (T1), **Meals and plans** (T3, T4, T8, T9, T10), **Shopping** (T5, T6, T7, T11, T12), **Sharing** (T2, T13), and **Account and data** (T14–T18). Cross-link sign-in help from getting-started content. Show only groups with published tutorials.
+- Order tutorials by task and learning sequence within those groups. Use ordinary HTML links and section anchors; the initial 18-guide library does not require site search or JavaScript-only discovery.
+- Link to the hub from Support and the Guides index. Link relevant homepage features and general articles directly to the matching tutorial when readers need app instructions. Use descriptive anchors and add public links only when the destination is live.
+- Use **Home → Help → Tutorial** breadcrumbs. Retain existing article, support and download URLs; the new library requires no migration of existing pages.
+- Launch the hub with [T1](#tutorial-t1), not an empty directory. Keep unpublished titles, empty categories and drafts out of public navigation. Product announcements remain in Updates and point to maintained tutorials when those publish.
+
+**Help release requirements:** the explicit publication boundary in `scripts/site-files.mjs` includes the `help` section, maps `help/index.html` to the `/help/` canonical, and recognises help routes in sitemap handling, validation and IndexNow eligibility. The hub uses `CollectionPage` with a matching visible `ItemList`; T1 uses `Article` with Home → Help → Tutorial breadcrumb data. Help pages are included in date, metadata, sharing and browser checks, with regression tests for incomplete help releases. Complete local review and align provisional publication dates before any separately authorised release; apply the [help-library acceptance checks](#future-help-library-acceptance-checks) to future additions too.
 
 ## Topics to build on
 
@@ -23,40 +40,42 @@ This is the authoritative Fameally editorial roadmap. It combines the 20 recomme
 
 Before commissioning a new page, identify its reader need, inspect the existing coverage and decide whether an update to an existing page would answer that need better. Do not duplicate the same intent across multiple articles or on ENVentures.
 
-The 25 scheduled topics below are agreed as separate, focused guides. Their briefs define the boundaries that distinguish them from one another and from existing articles. Apply the review-first principle above to future additions to the roadmap.
+The 25 existing article topics and 18 app tutorials are agreed as separate, focused guides. Their briefs define the boundaries that distinguish them from one another and from existing articles. General articles explain household routines and choices; tutorials explain verified Fameally operations. Apply the review-first principle above to future additions to the roadmap.
 
 ## Linking and resources
 
-Link Updates to relevant guides and product functionality. Link articles to features only where they help the reader act; avoid repetitive promotional blocks. Use descriptive natural anchors. Resources should work independently, then explain briefly how Fameally simplifies that manual workflow.
+Link Updates to relevant guides and product functionality, including maintained tutorials once published. Link articles to features and tutorials only where they help the reader act; avoid repetitive promotional blocks. Tutorials should link to the relevant general guide for context, related app tasks for the next step, and support where the problem needs assistance. Use descriptive natural anchors. Resources should work independently, then explain briefly how Fameally simplifies that manual workflow.
 
 The planner remains at `output/pdf/fameally-weekly-dinner-planner.pdf`; the comparison article retains its existing URL and download. Resources is a directory with original instructions, not a replacement article. No redirects or migrations are required.
 
 ## Using the roadmap
 
-This document defines editorial intentions and planning briefs. Article writing, downloadable resource creation, scheduling automations and publication are separate work, requiring their own instruction. A target date is not an instruction to publish or proof of publication.
+This document defines editorial intentions, planning briefs and future site structure. Article and tutorial writing, downloadable resource creation, website implementation, scheduling automations and publication are separate work, requiring their own instruction. A target date is not an instruction to publish or proof of publication.
 
-1. Select the earliest unpublished calendar entry and open its linked brief. Check any work already in progress before starting another draft.
+1. Select the earliest unpublished entry by its **revised target date** and open its linked brief. Check any work already in progress before starting another draft. Before releasing T1, complete the help-library release prerequisite above.
 2. Review the reader need, existing coverage, planned companions and current product/source evidence. Recheck relevant facts when writing, even if they were verified for an earlier article.
-3. When article work is separately requested, use the brief to prepare it and update its calendar status as work progresses.
-4. After the article actually publishes, record **Published** and its actual publication date. Keep the original target date unless the editorial schedule is deliberately revised; use the actual date in the article's publication metadata.
-5. If a target is missed or priorities change, edit the remaining targets deliberately and check the seasonal windows. Passing a date never changes status automatically.
+3. When article or tutorial work is separately requested, use the brief to prepare it and update its calendar status as work progresses. Tutorial drafting must follow the [app tutorial production requirements](#app-tutorial-production-requirements).
+4. After the article or tutorial actually publishes, record **Published** and its actual publication date. Retain the original target and any revised target as planning history; use the actual date in the page's publication metadata.
+5. If a target is missed or priorities change, edit the remaining revised targets deliberately and check the seasonal windows. Passing a date never changes status automatically. Do not rewrite published dates to refresh or promote a page.
 
 Status progression: **Planned → Drafting → Ready → Published**.
 
 - **Planned:** the topic has an agreed brief and target; article work has not started.
-- **Drafting:** article work has started under a separate request.
-- **Ready:** the article and any required resource have completed factual, editorial and website checks and are ready for a separate publication decision.
-- **Published:** the article is live at its canonical URL and its actual publication date has been recorded.
+- **Drafting:** article or tutorial work has started under a separate request.
+- **Ready:** the page and any required resource have completed factual, editorial and website checks and are ready for a separate publication decision.
+- **Published:** the page is live at its canonical URL and its actual publication date has been recorded.
 
 ## Publication calendar
 
-All dates use **Europe/London** time. The opening exception is Thursday **22 October 2026 (evening)** and Friday **23 October 2026**. From Monday **26 October**, targets fall on **Monday, Wednesday and Friday**, until the queue is complete on Wednesday **16 December 2026**. These are target dates; no automatic publication is configured.
+All dates use **Europe/London** time, with the existing **19:00** reminder convention. From **11 November 2026**, publish one tutorial each **Wednesday**, alongside the existing articles on **Monday and Friday**. Once those articles finish on **11 January 2027**, use the remaining Monday/Wednesday/Friday slots for tutorials. The revised queue finishes on **Monday 1 February 2027**. Pause on **25 December 2026** and **1 January 2027**. These are target dates; no automatic publication is configured.
 
-Publishing reminders are now managed in ChatGPT, following setup confirmed by the user on **24 October 2026**. The requested cadence is **19:00 Europe/London on Monday, Wednesday and Friday**, from **23 October** through **16 December 2026**; manage the cloud reminder's schedule and notifications in ChatGPT. The desktop reminder, **Publish Fameally articles**, was paused on **24 October** to prevent duplicates. The cloud reminder does not read this local roadmap automatically; consult the calendar and brief when acting on a reminder. Reminders do not authorise article creation or publication.
+Publishing reminders are managed in ChatGPT, following setup confirmed by the user on **24 October 2026**. The existing cloud reminder is recorded as **19:00 Europe/London on Monday, Wednesday and Friday**, from **23 October** through **16 December 2026**. **Follow-up:** separately extend that reminder through **1 February 2027**, accounting for the two holiday pauses; this document does not change its schedule or notifications. Keep the desktop reminder, **Publish Fameally articles**, paused as it has been since **24 October** to prevent duplicates. The cloud reminder does not read this local roadmap automatically; consult the calendar and brief when acting on a reminder. Reminders do not authorise page creation or publication.
 
-IDs 1–20 retain the original recommendation numbers; L1–L5 identify the five older unpublished topics. The opening order is 1, 2, 3, 4, 5, 7, 9, 10. Existing published guides are excluded from this queue. Empty actual-date cells mean publication has not been recorded.
+IDs 1–20 retain the original recommendation numbers; L1–L5 identify the five topics carried over from the older queue; **T1–T18** identify the new app tutorials. Published records retain their editorial targets and actual dates below. Other previously published site guides remain outside this calendar. The active calendar is ordered by revised target; original targets preserve the previous schedule, and **— (new)** marks tutorials with no earlier target. Empty actual-date cells mean publication has not been recorded.
 
-| ID | Target date | Article and planning brief | Status | Actual publication date |
+### Published records
+
+| ID | Target date | Article or tutorial and planning brief | Status | Actual publication date |
 | --- | --- | --- | --- | --- |
 | 1 | Thu 2026-10-22 (evening) | [How to Reduce Food Waste at Home: A Practical UK Family Guide](#article-1) | Published | 2026-10-22 |
 | 2 | Fri 2026-10-23 | [How to Organise Your Shopping List by Supermarket Aisle](#article-2) | Published | 2026-10-24 |
@@ -67,28 +86,53 @@ IDs 1–20 retain the original recommendation numbers; L1–L5 identify the five
 | 9 | Wed 2026-11-04 | [How to Create a Master Grocery List for Your Household](#article-9) | Published | 2026-11-04 |
 | 10 | Fri 2026-11-06 | [How to Plan Meals Around Expiry Dates](#article-10) | Published | 2026-11-09 |
 | 6 | Mon 2026-11-09 | [How to Make a Monthly Family Meal Plan Without Starting From Scratch](#article-6) | Published | 2026-11-09 |
-| L1 | Wed 2026-11-11 | [Paprika vs Fameally: Recipe Manager or Weekly Household Planner?](#article-l1) | Planned | |
-| 8 | Fri 2026-11-13 | [Meal Planning for Picky Eaters: A Flexible Family Approach](#article-8) | Planned | |
-| L2 | Mon 2026-11-16 | [Cozi vs Fameally: Family Organiser or Meal Planning App?](#article-l2) | Planned | |
-| 11 | Wed 2026-11-18 | [Meal Planning for Couples: Share the Cooking and Shopping](#article-11) | Planned | |
-| 16 | Fri 2026-11-20 | [Christmas Food Shopping Checklist for UK Families](#article-16) | Planned | |
-| 12 | Mon 2026-11-23 | [How to Save and Organise Your Favourite Family Recipes](#article-12) | Planned | |
-| 13 | Wed 2026-11-25 | [How Much Does Meal Planning Actually Save?](#article-13) | Planned | |
-| 14 | Fri 2026-11-27 | [How to Plan Family Meals When Everyone Has Different Preferences](#article-14) | Planned | |
-| 15 | Mon 2026-11-30 | [When Does Tracking Recipe Serving Sizes Matter?](#article-15) | Planned | |
-| 18 | Wed 2026-12-02 | [The Ultimate Printable Family Shopping Checklist](#article-18) | Planned | |
-| 19 | Fri 2026-12-04 | [7-Day Family Meal Plans for Different Budgets](#article-19) | Planned | |
-| 20 | Mon 2026-12-07 | [What Can I Cook With What I Already Have?](#article-20) | Planned | |
-| L3 | Wed 2026-12-09 | [Why Use a Meal Planning App Instead of Planning in Your Head?](#article-l3) | Planned | |
-| L4 | Fri 2026-12-11 | [Why Shared Shopping List Apps Reduce Forgotten Items](#article-l4) | Planned | |
-| 17 | Mon 2026-12-14 | [How to Avoid Wasting Christmas Leftovers](#article-17) | Planned | |
-| L5 | Wed 2026-12-16 | [How to Choose Between Recipe Apps, Meal Planning Apps, and Shopping List Apps](#article-l5) | Planned | |
+| T1 | Wed 2026-11-11 | [Get started with Fameally: create your first meal plan and shopping list](#tutorial-t1) | Published | 2026-11-11 |
+
+### Active calendar
+
+The Christmas shopping checklist retains **20 November** and the Christmas leftovers guide retains **14 December**. The active calendar contains 16 articles and 17 tutorials, all **Planned**.
+
+| ID | Original target date | Revised target date | Article or tutorial and planning brief | Status | Actual publication date |
+| --- | --- | --- | --- | --- | --- |
+| L1 | Wed 2026-11-11 | Fri 2026-11-13 | [Paprika vs Fameally: Recipe Manager or Weekly Household Planner?](#article-l1) | Planned | |
+| 8 | Fri 2026-11-13 | Mon 2026-11-16 | [Meal Planning for Picky Eaters: A Flexible Family Approach](#article-8) | Planned | |
+| T2 | — (new) | Wed 2026-11-18 | [Invite your household and share meals, plans and shopping lists in Fameally](#tutorial-t2) | Planned | |
+| 16 | Fri 2026-11-20 | Fri 2026-11-20 | [Christmas Food Shopping Checklist for UK Families](#article-16) | Planned | |
+| L2 | Mon 2026-11-16 | Mon 2026-11-23 | [Cozi vs Fameally: Family Organiser or Meal Planning App?](#article-l2) | Planned | |
+| T3 | — (new) | Wed 2026-11-25 | [Import a recipe from a website into Fameally](#tutorial-t3) | Planned | |
+| 11 | Wed 2026-11-18 | Fri 2026-11-27 | [Meal Planning for Couples: Share the Cooking and Shopping](#article-11) | Planned | |
+| 12 | Mon 2026-11-23 | Mon 2026-11-30 | [How to Save and Organise Your Favourite Family Recipes](#article-12) | Planned | |
+| T4 | — (new) | Wed 2026-12-02 | [Save and reuse a weekly meal plan in Fameally](#tutorial-t4) | Planned | |
+| 13 | Wed 2026-11-25 | Fri 2026-12-04 | [How Much Does Meal Planning Actually Save?](#article-13) | Planned | |
+| 14 | Fri 2026-11-27 | Mon 2026-12-07 | [How to Plan Family Meals When Everyone Has Different Preferences](#article-14) | Planned | |
+| T5 | — (new) | Wed 2026-12-09 | [Set up weekly regulars and household essentials in Fameally](#tutorial-t5) | Planned | |
+| 15 | Mon 2026-11-30 | Fri 2026-12-11 | [When Does Tracking Recipe Serving Sizes Matter?](#article-15) | Planned | |
+| 17 | Mon 2026-12-14 | Mon 2026-12-14 | [How to Avoid Wasting Christmas Leftovers](#article-17) | Planned | |
+| T6 | — (new) | Wed 2026-12-16 | [Sort your Fameally shopping list by supermarket aisle](#tutorial-t6) | Planned | |
+| 18 | Wed 2026-12-02 | Fri 2026-12-18 | [The Ultimate Printable Family Shopping Checklist](#article-18) | Planned | |
+| 19 | Fri 2026-12-04 | Mon 2026-12-21 | [7-Day Family Meal Plans for Different Budgets](#article-19) | Planned | |
+| T7 | — (new) | Wed 2026-12-23 | [Use Due Soon shopping suggestions in Fameally](#tutorial-t7) | Planned | |
+| 20 | Mon 2026-12-07 | Mon 2026-12-28 | [What Can I Cook With What I Already Have?](#article-20) | Planned | |
+| T8 | — (new) | Wed 2026-12-30 | [Add and edit your own meals and ingredients in Fameally](#tutorial-t8) | Planned | |
+| L3 | Wed 2026-12-09 | Mon 2027-01-04 | [Why Use a Meal Planning App Instead of Planning in Your Head?](#article-l3) | Planned | |
+| T9 | — (new) | Wed 2027-01-06 | [Change your weekly Fameally plan and check the shopping list](#tutorial-t9) | Planned | |
+| L4 | Fri 2026-12-11 | Fri 2027-01-08 | [Why Shared Shopping List Apps Reduce Forgotten Items](#article-l4) | Planned | |
+| L5 | Wed 2026-12-16 | Mon 2027-01-11 | [How to Choose Between Recipe Apps, Meal Planning Apps, and Shopping List Apps](#article-l5) | Planned | |
+| T10 | — (new) | Wed 2027-01-13 | [Find and organise saved meals with Fameally tags](#tutorial-t10) | Planned | |
+| T11 | — (new) | Fri 2027-01-15 | [Complete a shop and revisit your Fameally shopping history](#tutorial-t11) | Planned | |
+| T12 | — (new) | Mon 2027-01-18 | [Switch between combined and separate shopping lists in Fameally](#tutorial-t12) | Planned | |
+| T13 | — (new) | Wed 2027-01-20 | [Share a saved meal or meal plan from Fameally](#tutorial-t13) | Planned | |
+| T14 | — (new) | Fri 2027-01-22 | [Recover deleted meals, plans and shopping items in Fameally](#tutorial-t14) | Planned | |
+| T15 | — (new) | Mon 2027-01-25 | [Create and restore a password-protected Fameally backup](#tutorial-t15) | Planned | |
+| T16 | — (new) | Wed 2027-01-27 | [Sign in to Fameally, verify your email and reset your password](#tutorial-t16) | Planned | |
+| T17 | — (new) | Fri 2027-01-29 | [Manage your Fameally subscription and purchased access](#tutorial-t17) | Planned | |
+| T18 | — (new) | Mon 2027-02-01 | [Understand your Fameally household statistics](#tutorial-t18) | Planned | |
 
 ## Brief conventions and editorial checks
 
-Write for UK families and households in warm, practical British English. Use contractions, direct language and realistic household moments. Keep the advice usable without an app; explain Fameally only where a verified feature helps the reader act. Avoid perfectionism, forced jokes, guaranteed outcomes and repetitive promotional sections.
+Write for UK families and households in warm, practical British English. Use contractions, direct language and realistic household moments. General articles should work without an app; app tutorials should demonstrate the verified Fameally workflow directly. Avoid perfectionism, forced jokes, guaranteed outcomes and repetitive promotional sections.
 
-Every brief below specifies a future guide, not article copy. Proposed URLs are reserved editorial intentions, shown as code rather than links to nonexistent pages. Existing-guide links are usable now. Planned-companion links open other briefs in this document; add public cross-links only after the companion articles publish. Resource briefs describe future downloads without creating them or promising an available file.
+Every brief below defines an editorial intention; published article briefs also retain their publication evidence. New article and tutorial briefs are not page copy. Proposed URLs are reserved editorial intentions, shown as code rather than links to nonexistent pages. Existing-guide links are usable now. Planned-companion links open other briefs in this document; add public cross-links only after the companion pages publish. Resource briefs describe future downloads without creating them or promising an available file.
 
 - Verify current Fameally behaviour, screen names, platform support, access tiers and sharing limits before drafting instructions. Confirm the relevant released app version; implementation code alone does not establish public availability.
 - Treat pantry inventories, food expiry tracking, AI meal generation and automatic serving adjustments as unverified unless released-product evidence supports them. Due Soon is described in the existing product update as purchase-pattern suggestions for regular shopping items; do not turn that into a claim about food expiry or exact stock levels.
@@ -97,6 +141,19 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - For AI or competitor comparisons, check current official product information and identify what was actually tested. Record source links and the date checked in the eventual article. Do not infer a feature is absent merely because a landing page does not mention it.
 - For priced examples, state retailer, date, household size, meals covered, pack sizes, cupboard assumptions and substitutions. Distinguish ingredient-use cost from the amount paid at checkout.
 - Future article production follows the existing README editorial layout, metadata, sharing, publication-date and validation requirements. These documents alone do not add pages to the public site.
+
+SEO opportunities are editorial hypotheses, not measured search demand or promises of traffic. Prioritise original app demonstrations and complete answers to reader tasks, following [Google's guidance on useful content and firsthand expertise](https://developers.google.com/search/docs/fundamentals/creating-helpful-content). Use [crawlable links and descriptive anchors](https://developers.google.com/search/docs/crawling-indexing/links-crawlable) to connect related tasks and context.
+
+### App tutorial production requirements
+
+These requirements apply to **every T1–T18 brief**, including its prerequisites, screenshots and feature checks. Default to text with current screenshots. Video is not required for this programme.
+
+- Test the exact steps against the **released app**. Record the tested app version, platform and verification date in the review evidence, and show the tested version and platform in the tutorial. Source code can help locate functionality but does not establish public availability. If a proposed workflow is not released, revise its brief and target deliberately before drafting; do not invent steps or silently mark it Ready.
+- State the subscription requirement, sign-in requirement, household permissions and any prerequisite data or setup. Verify those requirements during production rather than copying old prices or entitlements; link to current pricing where appropriate.
+- Show a visible result, numbered steps, common problems and a useful next step. Use exact released screen and control names. Separate iOS, iPadOS and Android instructions only where behaviour differs, and do not claim a platform was tested when it was not.
+- Capture current screenshots from demonstration accounts, with meaningful alternative text and accessible captions. Show the important action and resulting state. Do not expose real household information or credentials; demonstrate recovery and restoration only with disposable demonstration data.
+- Include one original publication date and, after a meaningful revision, at most one latest update date. Follow the existing metadata, byline, sharing and validation conventions. Recheck affected tutorials after app changes and use the next review to correct outdated screens or steps.
+- Explain the supported limitations and a route to support when the task cannot be completed. Do not infer pantry stock, food expiry, dietary suitability, automatic quantity scaling or guaranteed synchronisation from unrelated features.
 
 ### Boundaries between related guides
 
@@ -109,6 +166,12 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 | 6 | Assemble a month from reusable weekly patterns; do not imply Fameally has a dedicated monthly planning interface. |
 | 13 / 19 | Explain and measure potential savings / provide fully specified example meal plans and shopping baskets. |
 | L3 / L5 | Reduce reliance on memory / choose between categories of recipe, planning and shopping tools. |
+| 5 / T2 | Explain the broader iPhone/Android sharing decision / show Fameally owner and invitee steps, requirements and problems. |
+| 2 / T6 | Organise the route through a supermarket / configure and use the actual Fameally aisle controls. |
+| Due Soon update / T7 | Preserve the product announcement as history / maintain the current operating instructions and troubleshooting reference. Due Soon is never expiry tracking or a measurement of cupboard stock. |
+| 12 / T3 / T10 | Establish a general recipe-organisation routine / import and review a recipe in Fameally / use Fameally's supported tags and filtering. |
+| T1 / T8 / T9 | Complete the first end-to-end meal-to-list workflow / maintain the underlying meal and ingredient records / change an existing scheduled week and check list effects. |
+| T2 / T13 | Collaborate in a shared household workspace / send and receive supported meal or plan content, with any copy/import semantics verified. |
 
 ## Article planning briefs
 
@@ -483,8 +546,268 @@ Every brief below specifies a future guide, not article copy. Proposed URLs are 
 - **Existing links:** [Compare meal-planning apps](articles/best-meal-planning-apps-for-uk-families.html); [Compare household shopping-list apps](articles/best-shopping-list-apps-for-families-and-households.html).
 - **Planned companions:** [L1: Paprika comparison](#article-l1); [L2: Cozi comparison](#article-l2); [L3: move beyond a mental plan](#article-l3).
 
+## App tutorial planning briefs
+
+The following briefs cover published and planned app tutorials. All titles explicitly name Fameally, and each proposed URL identifies one filename under the `/help/` section. Every brief inherits the [app tutorial production requirements](#app-tutorial-production-requirements); feature availability must be verified before drafting.
+
+<a id="tutorial-t1"></a>
+
+### T1. Get started with Fameally: create your first meal plan and shopping list
+
+- **Proposed URL:** `https://fameally.com/help/getting-started.html`
+- **Reader need:** Reach a useful first result without learning every feature at once.
+- **Outcome:** One saved meal appears in a weekly plan and its ingredients appear on a usable shopping list.
+- **Prerequisites:** Verify released app version, platform, sign-in and access requirements; use a fresh demonstration profile for welcome steps and a dedicated test account for post-setup screens. The help hub and its publishing support must be ready for the first release.
+- **Section outline:** Check access; add a familiar meal and ingredients; add it to the week; open and check the food list; add one household extra; choose a next task. Include common first-run problems.
+- **Screenshots required:** Meal entry, the scheduled meal and the resulting list, with accessible captions showing the action and result.
+- **Research and feature checks:** Test the full sequence in the released app and record version, platform and date. Confirm exact controls, quantities, list-generation behaviour and any differences between supported platforms. Keep advanced setup in companion tutorials.
+- **Related content:** [Build a list from a meal plan](articles/how-to-turn-a-meal-plan-into-a-food-shopping-list.html); [T2: household sharing](#tutorial-t2); [T8: maintain meals](#tutorial-t8); [T16: sign-in help](#tutorial-t16).
+- **Local review package (9 November 2026):** [Help hub source](help/index.html); [T1 source](help/getting-started.html); [review notes and verification coverage](output/review/help-t1/REVIEW.md); [capture provenance](output/review/help-t1/provenance.json). Preview the built site at `http://127.0.0.1:8767/help/`. These files preserve the original local review.
+- **Verification:** Fameally **1.9.77**, version code **78**, on **Android 14**. In a temporary emulator profile, created Beans on toast with Bread and Baked beans, saved it, and verified the first-week preview places the meal on Monday and produces both list entries. Verified Save my list opens the account-creation prompt without creating an account or accepting terms. Inspected the existing signed-in demonstration account's Shopping → Cleaning → + → Add Cleaning Item controls without submitting a household item. The two new screenshots show the same example and preserve the app's first-run appearance. iOS and iPadOS were not tested; the tutorial identifies its Android reference version.
+- **Publication record:** Published **11 November 2026**. The [Help hub](https://fameally.com/help/) and [getting-started tutorial](https://fameally.com/help/getting-started.html) are live. Verified the visible date, Help navigation, app screenshots, sharing and sitemap after the [successful deployment and IndexNow run](https://github.com/ENVentures-LTD/fameally-website/actions/runs/43105187498). [Release commit](https://github.com/ENVentures-LTD/fameally-website/commit/294c0088545f32c608a6bd7e45ec829ca54feb59).
+
+<a id="tutorial-t2"></a>
+
+### T2. Invite your household and share meals, plans and shopping lists in Fameally
+
+- **Proposed URL:** `https://fameally.com/help/invite-your-household.html`
+- **Reader need:** Give another household member access to the right shared workspace.
+- **Outcome:** An owner sends an invitation, the intended person accepts it and both can find the shared content.
+- **Prerequisites:** Verify current Family access, owner permissions, membership limits, account requirements and released versions on both demonstration devices.
+- **Section outline:** Check eligibility; send an invitation; accept with the intended account; find the shared workspace; check a harmless list change; resolve missing invitations or content; contact support if needed.
+- **Screenshots required:** Owner invitation, invitee acceptance and the shared workspace, using demonstration email addresses.
+- **Research and feature checks:** Record version, platform and date for both roles. Verify acceptance, permissions, sync and connectivity behaviour; do not promise immediate updates under every condition. The broader cross-platform article retains its own purpose.
+- **Related content:** [Share between iPhone and Android](articles/how-to-share-a-shopping-list-between-iphone-and-android.html); [11: planning for couples](#article-11); [T13: share meal or plan content](#tutorial-t13); [Contact support](support.html).
+
+<a id="tutorial-t3"></a>
+
+### T3. Import a recipe from a website into Fameally
+
+- **Proposed URL:** `https://fameally.com/help/import-a-recipe.html`
+- **Reader need:** Save an online recipe without retyping information that the app can import.
+- **Outcome:** A reviewed recipe is saved with usable ingredients and its original source retained where supported.
+- **Prerequisites:** Verify released version, platform, account and access requirements. Choose a publicly accessible recipe that imports successfully and a reproducible failure example.
+- **Section outline:** Start the supported URL-import flow; supply the recipe address; review ingredients, quantities and instructions; correct supported fields; save and check the result; handle failed or incomplete imports.
+- **Screenshots required:** Import entry, review or correction stage and saved meal, with source attribution.
+- **Research and feature checks:** Record version, platform and date. Verify import entry points, review controls, supported edits, failure messages and manual fallback. Do not claim every website imports or that quantities are always interpreted correctly.
+- **Related content:** [12: organise family recipes](#article-12); [T8: edit meals and ingredients](#tutorial-t8); [T10: tags and filtering](#tutorial-t10).
+
+<a id="tutorial-t4"></a>
+
+### T4. Save and reuse a weekly meal plan in Fameally
+
+- **Proposed URL:** `https://fameally.com/help/save-and-reuse-meal-plans.html`
+- **Reader need:** Start another week from a plan that already worked.
+- **Outcome:** A saved weekly plan is reused and adapted for the intended week.
+- **Prerequisites:** Verify released version, platform, subscription and workspace permissions. Prepare a demonstration week and a destination with known existing content.
+- **Section outline:** Save the week; find the saved plan; select the destination; review the effect on existing meals; apply and adapt it; check the resulting shopping list; handle missing or unavailable plans.
+- **Screenshots required:** Saving, selecting the saved plan and the destination week after reuse.
+- **Research and feature checks:** Record version, platform and date. Verify save/apply controls, destination and existing-content behaviour, access tier and ingredient effects. Do not imply automatic rotation, a monthly planning screen or overwrite behaviour that has not been tested.
+- **Related content:** [Build a month from weekly patterns](articles/how-to-make-a-monthly-family-meal-plan-without-starting-from-scratch.html); [T9: change an existing week](#tutorial-t9); [T13: share content](#tutorial-t13).
+
+<a id="tutorial-t5"></a>
+
+### T5. Set up weekly regulars and household essentials in Fameally
+
+- **Proposed URL:** `https://fameally.com/help/weekly-regulars.html`
+- **Reader need:** Add recurring household purchases without rebuilding the same list every week.
+- **Outcome:** Selected food and household essentials are configured as regulars and added to the appropriate list.
+- **Prerequisites:** Verify released version, platform, access tier and household permissions; prepare demonstration food, cleaning and toiletry items.
+- **Section outline:** Find the regular-item controls; choose items and supported default quantities; add weekly regulars; check items already listed; change or remove a regular; resolve missing items.
+- **Screenshots required:** Regular-item configuration, the add-regulars action and the resulting food and household entries.
+- **Research and feature checks:** Record version, platform and date. Test default quantities, categories, repeated additions and permissions. Distinguish intentional weekly regulars from purchase-pattern suggestions; do not imply automatic restocking or exact stock levels.
+- **Related content:** [Create a master grocery list](articles/how-to-create-a-master-grocery-list-for-your-household.html); [Remember household essentials](articles/the-easiest-way-to-stop-forgetting-regular-household-shopping-items.html); [T7: Due Soon](#tutorial-t7).
+
+<a id="tutorial-t6"></a>
+
+### T6. Sort your Fameally shopping list by supermarket aisle
+
+- **Proposed URL:** `https://fameally.com/help/sort-shopping-list-by-aisle.html`
+- **Reader need:** Configure Fameally's list ordering for the way the household shops.
+- **Outcome:** A mixed demonstration list appears in a verified, chosen aisle order.
+- **Prerequisites:** Verify released version, platform, access tier and workspace permissions. Prepare a mixed list and identify the actual supported aisle setup.
+- **Section outline:** Find aisle settings; configure the supported order; place or assign items where supported; apply the sorting view; check the result; explain unmatched items and changing stores.
+- **Screenshots required:** Relevant configuration controls and the same list before and after sorting.
+- **Research and feature checks:** Record version, platform and date. Verify configuration, assignments, ordering and supported store behaviour. Do not promise automatic physical supermarket maps or controls that have not been released.
+- **Related content:** [Organise a supermarket trip by aisle](articles/how-to-organise-your-shopping-list-by-supermarket-aisle.html); [T12: list layouts](#tutorial-t12); [T5: regular items](#tutorial-t5).
+
+<a id="tutorial-t7"></a>
+
+### T7. Use Due Soon shopping suggestions in Fameally
+
+- **Proposed URL:** `https://fameally.com/help/due-soon.html`
+- **Reader need:** Review recurring purchases that may need attention before the next shop.
+- **Outcome:** The reader can open suggestions, decide whether an item is needed and add it deliberately, or understand why the panel is empty.
+- **Prerequisites:** Verify released version, platform, access tier and permissions. Use demonstration purchase history that meets the current eligibility rules, plus an account without enough history.
+- **Section outline:** Explain what Due Soon uses; open the panel; read an item suggestion; check household supplies; add a needed item; explain an empty panel and excluded items; choose regulars or manual entry when appropriate.
+- **Screenshots required:** Populated suggestions, a resulting list entry and the empty state, with explanatory captions.
+- **Research and feature checks:** Record version, platform and date. Recheck purchase-count, interval and completed-cycle requirements, quantities and already-listed exclusions. Due Soon is never food-expiry tracking or a measurement of cupboard stock. This tutorial becomes the maintained operating reference.
+- **Related content:** [Original Due Soon announcement](updates/due-soon-remember-regular-shopping-items.html); [T5: weekly regulars](#tutorial-t5); [T11: complete a shop and review history](#tutorial-t11).
+
+<a id="tutorial-t8"></a>
+
+### T8. Add and edit your own meals and ingredients in Fameally
+
+- **Proposed URL:** `https://fameally.com/help/add-and-edit-meals.html`
+- **Reader need:** Keep a reusable meal accurate as ingredients or the household's version change.
+- **Outcome:** A meal's supported details and ingredient quantities are saved and can be found again.
+- **Prerequisites:** Verify released version, platform, access tier and edit permissions; prepare a demonstration meal with known ingredient names and units.
+- **Section outline:** Create a meal; add supported ingredient and recipe details; edit an existing meal; review names, units and quantities; save and reopen it; handle missing edits or unexpected list effects.
+- **Screenshots required:** Meal editing, ingredient entry or correction and the saved result.
+- **Research and feature checks:** Record version, platform and date. Verify required fields, supported edits, ingredient matching and effects on saved or scheduled uses. Do not imply automatic serving adjustments, nutrition calculations or retroactive changes without evidence.
+- **Related content:** [T1: first complete workflow](#tutorial-t1); [T3: import a recipe](#tutorial-t3); [T9: edit the scheduled week](#tutorial-t9); [15: serving sizes](#article-15).
+
+<a id="tutorial-t9"></a>
+
+### T9. Change your weekly Fameally plan and check the shopping list
+
+- **Proposed URL:** `https://fameally.com/help/change-your-weekly-plan.html`
+- **Reader need:** Adapt an existing week when a dinner or shopping requirement changes.
+- **Outcome:** The intended scheduled meals are changed and the reader has checked what the shopping list now contains.
+- **Prerequisites:** Verify released version, platform, access tier and shared-workspace edit permissions. Use a demonstration week with known meal ingredients and list states.
+- **Section outline:** Find the correct week; move, replace or remove a meal through supported controls; review remaining meals; inspect ingredient quantities and household extras; resolve unexpected list contents.
+- **Screenshots required:** The original week, a supported change action and the resulting week and shopping list.
+- **Research and feature checks:** Record version, platform and date. Test each demonstrated action, list recalculation and treatment of manual or completed entries. Explain verified behaviour without assuming deleted ingredients are always removed or household extras are regenerated.
+- **Related content:** [Make a flexible weekly plan](articles/how-to-make-a-weekly-meal-plan-that-survives-a-normal-uk-week.html); [T4: reuse a saved week](#tutorial-t4); [T8: edit the underlying meal](#tutorial-t8).
+
+<a id="tutorial-t10"></a>
+
+### T10. Find and organise saved meals with Fameally tags
+
+- **Proposed URL:** `https://fameally.com/help/organise-meals-with-tags.html`
+- **Reader need:** Find suitable saved meals without scrolling through the whole library.
+- **Outcome:** Meals have supported tags and the reader can apply and clear the relevant filters.
+- **Prerequisites:** Verify released version, platform, access tier and editing permissions; prepare several demonstration meals with different supported tags.
+- **Section outline:** Find tag controls; apply or change available tags; save; filter the meal library; combine filters only if supported; clear filters and explain missing results.
+- **Screenshots required:** Tag selection, filtered results and the clear-filter action.
+- **Research and feature checks:** Record version, platform and date. Verify tag availability, whether custom tags exist, matching rules and shared visibility. Do not imply allergy protection, nutritional suitability or filtering capabilities that have not been tested.
+- **Related content:** [12: organise family recipes](#article-12); [14: different household preferences](#article-14); [T3: recipe import](#tutorial-t3); [T8: meal editing](#tutorial-t8).
+
+<a id="tutorial-t11"></a>
+
+### T11. Complete a shop and revisit your Fameally shopping history
+
+- **Proposed URL:** `https://fameally.com/help/shopping-history.html`
+- **Reader need:** Finish the current shop correctly and understand the record left behind.
+- **Outcome:** A demonstration shopping cycle is completed, its available history is located and the next list's state is understood.
+- **Prerequisites:** Verify released version, platform, history access and household permissions; prepare an active list with known bought and remaining items.
+- **Section outline:** Distinguish marking an item from completing a shop; use the actual completion control; inspect history; check what remains or resets; begin the next cycle; explain missing history.
+- **Screenshots required:** Completion control, resulting history and the next list state.
+- **Research and feature checks:** Record version, platform and date. Verify what constitutes a completed cycle, what history records, retention and access limits, and treatment of remaining items. Do not confuse shopping history with current stock or imply unsupported expenditure records.
+- **Related content:** [Build a practical food list](articles/how-to-turn-a-meal-plan-into-a-food-shopping-list.html); [T7: Due Soon history requirements](#tutorial-t7); [T18: household statistics](#tutorial-t18).
+
+<a id="tutorial-t12"></a>
+
+### T12. Switch between combined and separate shopping lists in Fameally
+
+- **Proposed URL:** `https://fameally.com/help/shopping-list-layout.html`
+- **Reader need:** Choose a supported list presentation that suits the household's shop.
+- **Outcome:** The reader can change the relevant setting and understand where food and household items appear.
+- **Prerequisites:** Verify released version, platform, access tier and setting permissions. Prepare a list containing food, cleaning, toiletry and general entries.
+- **Section outline:** Explain the available layouts; find the control; switch the setting; locate items in the result; switch back; resolve apparently missing sections or entries.
+- **Screenshots required:** Layout control and the same demonstration items in both supported presentations.
+- **Research and feature checks:** Record version, platform and date. Verify exact labels, category behaviour, persistence and whether the setting affects the device or workspace. Distinguish presentation changes from data merging or deletion; do not assume item quantities or sharing permissions change.
+- **Related content:** [T5: household regulars](#tutorial-t5); [T6: aisle ordering](#tutorial-t6); [T11: complete a shopping cycle](#tutorial-t11).
+
+<a id="tutorial-t13"></a>
+
+### T13. Share a saved meal or meal plan from Fameally
+
+- **Proposed URL:** `https://fameally.com/help/share-meals-and-plans.html`
+- **Reader need:** Send supported meal or plan content to another person without assuming household collaboration is the same operation.
+- **Outcome:** Demonstration content is shared and received through the released app's supported route, with any import or copy behaviour understood.
+- **Prerequisites:** Verify released versions, platforms, access tiers and permissions for sender and recipient; use content that can be shared safely from demonstration accounts.
+- **Section outline:** Select a meal or saved plan; use the supported sharing flow; receive and review the content; import or open it if supported; check the result; resolve incompatible content or failed sharing.
+- **Screenshots required:** Sender action, recipient review and the received result, with platform-specific screens where needed.
+- **Research and feature checks:** Record version, platform and date for both sides. Verify the actual format and transport, included fields, access and compatibility requirements, duplicate handling and whether future edits propagate. Do not promise links, particular file formats or live collaboration without evidence.
+- **Related content:** [T2: shared household workspace](#tutorial-t2); [T4: saved plans](#tutorial-t4); [T8: maintain a meal](#tutorial-t8); [Contact support](support.html).
+
+<a id="tutorial-t14"></a>
+
+### T14. Recover deleted meals, plans and shopping items in Fameally
+
+- **Proposed URL:** `https://fameally.com/help/recover-deleted-items.html`
+- **Reader need:** Restore an eligible accidental deletion without guessing which content can be recovered.
+- **Outcome:** A supported demonstration item is recovered and its destination and relationships are checked.
+- **Prerequisites:** Verify released version, platform, access tier, recovery permissions and eligible item types; create disposable demonstration deletions.
+- **Section outline:** Find deleted items; identify an eligible record; inspect available information; restore it; locate the result; explain unavailable, expired or permanently removed records; contact support where appropriate.
+- **Screenshots required:** Recovery list, the restore action and the recovered result for the demonstrated content types.
+- **Research and feature checks:** Record version, platform and date. Verify retention, eligible types, relationships, plan and list effects, permissions and permanent-deletion boundaries. Do not promise recovery of every deletion or use a real household to test it.
+- **Related content:** [T8: meal records](#tutorial-t8); [T9: scheduled plans](#tutorial-t9); [T15: backups](#tutorial-t15); [Contact support](support.html).
+
+<a id="tutorial-t15"></a>
+
+### T15. Create and restore a password-protected Fameally backup
+
+- **Proposed URL:** `https://fameally.com/help/backup-and-restore.html`
+- **Reader need:** Save a supported backup and understand the consequences before restoring one.
+- **Outcome:** A demonstration export is created, its contents can be previewed through the supported flow and a disposable destination is restored correctly.
+- **Prerequisites:** Verify released version, platform, access tier, workspace and owner restrictions. Use disposable demonstration data, a supported backup file and its password; verify destination compatibility before restoration.
+- **Section outline:** Explain included data and limits; export and store the file and password appropriately; select a backup; review its preview; explain replacement or merge effects and confirmation; restore; verify the result; handle wrong passwords, invalid files and blocked restores.
+- **Screenshots required:** Export controls, preview and restore confirmation, plus the demonstrated result; never show an actual password.
+- **Research and feature checks:** Record version, platform and date. Verify backup coverage, compatibility, password-recovery limits, blocked conditions and exact effects on existing and shared data. Do not describe a replacement as a merge or imply automatic cloud backup or cross-account migration without evidence.
+- **Related content:** [T14: recover eligible deletions](#tutorial-t14); [T16: account access](#tutorial-t16); [Contact support](support.html).
+
+<a id="tutorial-t16"></a>
+
+### T16. Sign in to Fameally, verify your email and reset your password
+
+- **Proposed URL:** `https://fameally.com/help/sign-in-and-password-help.html`
+- **Reader need:** Access the intended account or resolve a verification or password problem.
+- **Outcome:** The reader can follow the supported sign-in or recovery route and check the account and workspace shown on a device.
+- **Prerequisites:** Verify released version, platform and supported account methods. Use demonstration accounts and accessible inboxes to test verification and reset messages; establish which actions require an existing account rather than a paid tier.
+- **Section outline:** Choose the correct account method; sign in; verify email where required; request and complete a password reset; handle missing or expired messages; check access on another device; escalate unresolved problems.
+- **Screenshots required:** Sign-in and recovery controls, the relevant app result and any necessary demonstration email or browser step without credentials or live recovery tokens.
+- **Research and feature checks:** Record version, platform and date. Test supported methods and link handling, expiry and resend guidance. Do not imply a new account inherits purchases or content, or that email/password recovery applies to every sign-in method.
+- **Related content:** [T1: getting started](#tutorial-t1); [T2: join the intended household](#tutorial-t2); [T17: purchased access](#tutorial-t17); [Contact support](support.html).
+
+<a id="tutorial-t17"></a>
+
+### T17. Manage your Fameally subscription and purchased access
+
+- **Proposed URL:** `https://fameally.com/help/manage-your-subscription.html`
+- **Reader need:** Find the correct billing controls or resolve access that does not match a purchase.
+- **Outcome:** The reader can identify the billing provider, follow its supported management or cancellation route and use the verified access-recovery or support route.
+- **Prerequisites:** Verify released version, platform, Fameally account, purchasing store account and household ownership where relevant. Use approved demonstration or sandbox purchase evidence rather than making a live purchase to produce the guide.
+- **Section outline:** Identify the plan and billing provider; open Apple or Google management; review renewal and cancellation information; follow verified restore or access-recovery steps where available; distinguish billing, household access and account deletion; contact the right support channel.
+- **Screenshots required:** Fameally's relevant access controls and supported store-management screens, without payment or real account details.
+- **Research and feature checks:** Record version, platform and date. Check current official Apple and Google instructions, app access and restoration behaviour, trial terms and cancellation effects during writing. Do not promise refunds, immediate tier changes, cross-store transfers or a restore-purchase control that has not been verified. Link current pricing rather than duplicating amounts.
+- **Related content:** [Current plans and pricing](index.html#pricing); [T16: sign-in help](#tutorial-t16); [Contact support](support.html); [Account deletion](account-deletion.html).
+
+<a id="tutorial-t18"></a>
+
+### T18. Understand your Fameally household statistics
+
+- **Proposed URL:** `https://fameally.com/help/household-statistics.html`
+- **Reader need:** Understand what the app's available measures represent and when they may be incomplete.
+- **Outcome:** The reader can find the statistics view and interpret each demonstrated measure using its verified inputs and period.
+- **Prerequisites:** Verify released version, platform, access tier and workspace visibility. Prepare a demonstration household with known activity and a low-history comparison.
+- **Section outline:** Open statistics; explain each available measure; identify the covered period and workspace; show what recorded actions contribute; explain empty or incomplete views; choose a practical next check.
+- **Screenshots required:** The statistics overview and any supported detail or period controls, with captions tying the figures to known demonstration activity.
+- **Research and feature checks:** Record version, platform and date. Verify definitions, calculation inputs, date ranges, updates and permissions for every figure described. Do not infer grocery spending, calories, stock, nutritional adequacy or money saved unless the released product actually measures that quantity with a defensible definition.
+- **Related content:** [T11: shopping history](#tutorial-t11); [T7: purchase-pattern suggestions](#tutorial-t7); [13: assessing possible savings](#article-13).
+
+## Roadmap acceptance checks
+
+- Account for **43 unique topics**: the existing 25 articles and T1–T18. Preserve the published calendar rows and all 25 existing article briefs, including publication evidence. The current calendar has **10 published records** and **33 planned entries**, with original article targets retained alongside revised targets.
+- Check unique tutorial filenames and brief anchors, matching calendar-to-brief titles, working internal and existing local document links, and correct weekday labels. Future public URLs remain reserved code text, not links to missing pages.
+- Confirm revised targets are ordered, occupy Monday/Wednesday/Friday slots, skip **25 December 2026** and **1 January 2027**, and finish on **1 February 2027**. Retain article 16 on **20 November** and article 17 on **14 December**.
+- Keep this roadmap, archived ideas and future drafts outside the public build. Maintain the published Help hub and tutorials through the site release workflow.
+
+### Future help-library acceptance checks
+
+These checks govern the first release and later tutorial additions. The local T1 review package records the checks actually completed; preview availability is not evidence of public deployment.
+
+- Verify `/help/` and `/help/<slug>.html` are included in the explicit build boundary, canonical mapping, sitemap, validation and IndexNow handling. Confirm draft locations and this roadmap remain excluded.
+- Check `CollectionPage` and its `ItemList` against the hub's visible published links, and check each tutorial's `Article`, breadcrumbs, metadata and visible dates. Hub categories must contain live tutorials; no empty category, draft or reserved URL should be advertised.
+- Verify the Help navigation, prominent Contact support route, contextual links, sharing controls and screenshots. Check mobile layouts, keyboard access, dark mode, meaningful alternative text and navigation without JavaScript. Existing article, support, download and app-association URLs must continue to work.
+- Run the README's current site validation, article-sharing, publication-boundary, IndexNow and browser checks against the source and built preview as appropriate. Review the preview before any separately authorised release.
+- Capture a Search Console baseline for the first release, then review indexing and search performance after four and eight weeks. Check tutorial URLs and branded/task queries without treating sparse data as proof of an uplift. Track tutorial usage and support outcomes separately where measurement exists; Search Console does not measure completed app tasks or installs. New analytics integration and automatic review reminders require separate work.
+
 ## Deferred work
 
 Official social URLs have not been supplied. Do not guess handles, render empty Follow sections, add placeholder links or load social widgets. Once confirmed, add direct links to Fameally's footer, Updates index and ENVentures' Fameally page; add those same URLs to the app entity's `sameAs`. Do not add them to ENVentures' global footer or company entity. Check profile backlinks, product naming and store descriptions separately; account edits require their own authorization.
 
-This roadmap update produces documentation and planning briefs only. Article authoring, resource downloads, automations and publication are outside this implementation. ENVentures news remains separate work. Keep the roadmap and archived ideas outside the public build; no public HTML, indexes, sitemap, assets or deployment configuration are changed by maintaining these documents.
+The help hub, T1 and shared navigation are prepared for local review. The first public release and the remaining 17 tutorials remain separate work, following the release checks in [Section purposes](#section-purposes). The cloud reminder extension through **1 February 2027**, with the Christmas Day and New Year's Day pauses, also requires a separate schedule change; keep the desktop reminder paused.
+
+The roadmap itself remains excluded from the public build. Its original documentation-only update did not author or publish pages; the later, separately requested help-library implementation has prepared the source, navigation, sitemap, assets and checks for local review. Article and remaining tutorial production, resource downloads, automations and publication require their own instruction. ENVentures news remains separate work.
