@@ -48,6 +48,8 @@ test("rejects off-site, draft and noindex URLs before network access", async () 
         `${origin}/?x=1`,
         `${origin}/updates/index.html`,
         `${origin}/resources/index.html`,
+        `${origin}/help/index.html`,
+        `${origin}/help-upcoming/draft.html`,
         `${origin}/updates-upcoming/draft.html`,
     ]) {
         await assert.rejects(
@@ -65,14 +67,19 @@ test("reads directory collection indexes and prepares new detail pages without p
             "/resources/",
             "/updates/introducing-fameally.html",
             "/resources/pantry-checklist.html",
+            "/help/",
+            "/help/getting-started.html",
         ];
         mkdirSync(join(root, "updates"));
         mkdirSync(join(root, "resources"));
+        mkdirSync(join(root, "help"));
         writeFileSync(join(root, "sitemap.xml"), xml(paths));
         writeFileSync(join(root, "updates/index.html"), "unchanged updates");
         writeFileSync(join(root, "resources/index.html"), "new resources");
         writeFileSync(join(root, "updates/introducing-fameally.html"), "new introduction");
         writeFileSync(join(root, "resources/pantry-checklist.html"), "future resource fixture");
+        writeFileSync(join(root, "help/index.html"), "new help library");
+        writeFileSync(join(root, "help/getting-started.html"), "new tutorial");
         const calls = [];
         const plan = await preparePlan(root, async (url, options) => {
             calls.push(url);

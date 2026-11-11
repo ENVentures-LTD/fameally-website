@@ -820,6 +820,19 @@ footer {
     margin: 0;
     letter-spacing: -0.025em;
 }
+.article-card h3 {
+    font-size: 1.5rem;
+    line-height: 1.35;
+    margin: 0;
+    letter-spacing: -0.025em;
+}
+.article-card h3 a {
+    color: var(--ink);
+    text-decoration: none;
+}
+.article-card h3 a:hover {
+    text-decoration: underline;
+}
 .article-card h2 a {
     color: var(--ink);
     text-decoration: none;

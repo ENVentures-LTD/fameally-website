@@ -16,10 +16,10 @@ function validateUrl(value) {
         url.search ||
         url.hash ||
         !(
-            ["/", "/updates/", "/resources/"].includes(url.pathname) ||
-            /^\/(?:(?:articles|updates|resources)\/)?[a-z0-9-]+\.html$/.test(url.pathname)
+            ["/", "/updates/", "/resources/", "/help/"].includes(url.pathname) ||
+            /^\/(?:(?:articles|updates|resources|help)\/)?[a-z0-9-]+\.html$/.test(url.pathname)
         ) ||
-        ["/updates/index.html", "/resources/index.html"].includes(url.pathname)
+        ["/updates/index.html", "/resources/index.html", "/help/index.html"].includes(url.pathname)
     )
         throw new Error(`Not a public Fameally page URL: ${value}`);
     return value;

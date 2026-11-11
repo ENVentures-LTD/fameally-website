@@ -49,23 +49,25 @@ test("new collection canonicals preserve existing article and app-opening URLs",
         ["updates/introducing-fameally.html", "/updates/introducing-fameally.html"],
         ["resources/index.html", "/resources/"],
         ["resources/future-resource.html", "/resources/future-resource.html"],
+        ["help/index.html", "/help/"],
+        ["help/getting-started.html", "/help/getting-started.html"],
     ]) assert.equal(publicUrl(file), "https://fameally.com" + url);
 });
 
 test("published discovery includes new sections but excludes drafts and tooling", () => {
     const fixture = mkdtempSync(join(tmpdir(), "fameally-public-pages-"));
     try {
-        for (const dir of ["articles", "updates", "resources", "updates-upcoming", "articles-upcoming", "output/review"])
+        for (const dir of ["articles", "updates", "resources", "help", "updates-upcoming", "articles-upcoming", "help-upcoming", "output/review"])
             mkdirSync(join(fixture, dir), { recursive: true });
-        for (const file of ["articles/index.html", "articles/future-guide.html", "updates/index.html", "updates/release.html", "resources/index.html", "resources/future-resource.html", "updates/notes.md", "updates-upcoming/draft.html", "articles-upcoming/draft.html", "output/review/preview.html"])
+        for (const file of ["articles/index.html", "articles/future-guide.html", "updates/index.html", "updates/release.html", "resources/index.html", "resources/future-resource.html", "help/index.html", "help/getting-started.html", "help/notes.md", "help-upcoming/draft.html", "updates/notes.md", "updates-upcoming/draft.html", "articles-upcoming/draft.html", "output/review/preview.html"])
             writeFileSync(join(fixture, file), "fixture");
         const pages = publicPages(fixture);
-        for (const file of ["articles/future-guide.html", "updates/index.html", "updates/release.html", "resources/index.html", "resources/future-resource.html"])
+        for (const file of ["articles/future-guide.html", "updates/index.html", "updates/release.html", "resources/index.html", "resources/future-resource.html", "help/index.html", "help/getting-started.html"])
             assert.ok(pages.includes(file), file);
         assert.ok(!pages.some((file) => /upcoming|output|notes/.test(file)));
         assert.equal(new Set(pages).size, pages.length);
         // New public pages automatically enter the same validation path.
-        for (const file of ["articles/future-guide.html", "updates/release.html", "resources/future-resource.html"])
+        for (const file of ["articles/future-guide.html", "updates/release.html", "resources/future-resource.html", "help/getting-started.html"])
             assert.match(pageDateErrors(dateMarkup(publishedDate + oldDate + latestDate), datedArticle).join(), /only the latest/, file);
     } finally {
         rmSync(fixture, { recursive: true });

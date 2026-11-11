@@ -16,7 +16,7 @@ const root = resolve(import.meta.dirname, '..');
 const output = resolve(root, 'output/review/article-share');
 mkdirSync(output, { recursive: true });
 const base = process.env.SITE_URL ?? 'http://127.0.0.1:8766';
-const articles = publicPages(root).filter(file => /^(articles|updates)\//.test(file) && !file.endsWith('/index.html'));
+const articles = publicPages(root).filter(file => /^(articles|updates|help)\//.test(file) && !file.endsWith('/index.html'));
 const update = 'updates/due-soon-remember-regular-shopping-items.html';
 const browser = await chromium.launch({ channel: process.env.BROWSER_CHANNEL ?? 'msedge', headless: true });
 try {

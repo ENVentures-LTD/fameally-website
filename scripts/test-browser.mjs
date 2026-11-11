@@ -33,6 +33,8 @@ const representatives = [
     "updates/index.html",
     "updates/introducing-fameally.html",
     "resources/index.html",
+    "help/index.html",
+    "help/getting-started.html",
 ];
 const errors = [],
     audits = [];
@@ -57,6 +59,11 @@ try {
                     `${file}: horizontal overflow at ${width}px (${colorScheme})`,
                 );
                 assert.equal(await page.locator("h1").count(), 1, file);
+                if (file.startsWith("help/")) {
+                    const current = page.locator('#primary-links [aria-current]');
+                    assert.equal(await current.count(), 1, `${file}: one current navigation link`);
+                    assert.equal(await current.innerText(), "Help", `${file}: Help is current`);
+                }
                 if ([390, 1440].includes(width) && representatives.includes(file)) {
                     const audit = await new AxeBuilder({ page })
                         .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
@@ -145,6 +152,8 @@ try {
     for (const [path, canonical] of [
         ["updates/", "https://fameally.com/updates/"],
         ["resources/", "https://fameally.com/resources/"],
+        ["help/", "https://fameally.com/help/"],
+        ["help/getting-started.html", "https://fameally.com/help/getting-started.html"],
         ["updates/introducing-fameally.html", "https://fameally.com/updates/introducing-fameally.html"],
     ]) {
         await editorialPage.goto(`${base}/${path}`);

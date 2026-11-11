@@ -13,7 +13,7 @@ export const rootPages = [
 export function publicPages(root) {
     return [
         ...rootPages,
-        ...["articles", "updates", "resources"].flatMap((section) =>
+        ...["articles", "updates", "resources", "help"].flatMap((section) =>
             readdirSync(join(root, section))
                 .filter((name) => name.endsWith(".html"))
                 .sort()
@@ -29,7 +29,7 @@ export function publicUrl(page) {
             ? ""
             : page === "open/index.html"
               ? "open"
-              : ["updates/index.html", "resources/index.html"].includes(page)
+              : ["updates/index.html", "resources/index.html", "help/index.html"].includes(page)
                 ? page.slice(0, -"index.html".length)
                 : page;
     return "https://fameally.com/" + path;

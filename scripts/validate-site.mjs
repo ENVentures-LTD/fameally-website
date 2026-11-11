@@ -22,6 +22,8 @@ const metadata = (html, name) =>
 const content = (html, name) => attr(metadata(html, name) ?? "", "content");
 const updatePosts = [];
 let updateItems = [];
+const helpPosts = [];
+let helpItems = [];
 function unique(page, map, value, kind) {
     if (!value) return fail(page, "missing " + kind);
     if (map.has(value)) fail(page, `duplicate ${kind} with ${map.get(value)}`);
@@ -32,6 +34,11 @@ for (const page of pages) {
     const html = read(page);
     const head = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1] ?? "";
     const body = html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i)?.[1] ?? "";
+    const navigation = body.match(/<div class="nav-links"[^>]*>([\s\S]*?)<\/div>/)?.[1] ?? "";
+    if (!/<a href="\/help\/"[^>]*>Help<\/a\s*>/.test(navigation))
+        fail(page, "primary navigation must link to Help");
+    if (!/<a href="(?:\.\.\/)?support\.html"[^>]*>Contact support<\/a\s*>/.test(body))
+        fail(page, "missing Contact support link");
     if (/<(?:meta|title|link)\b/i.test(body)) fail(page, "page metadata must be in head");
     const seenMetadata = new Set();
     for (const match of matchAttrs(html, "meta")) {
@@ -188,7 +195,7 @@ for (const page of pages) {
     )
         fail(page, "missing linked developer relationship");
     const isArticle =
-        /^(articles|updates)\//.test(label(page)) && !label(page).endsWith("/index.html");
+        /^(articles|updates|help)\//.test(label(page)) && !label(page).endsWith("/index.html");
     const datedEntity = nodes.find((node) => ["BlogPosting", "Article"].includes(node["@type"])) ??
         nodes.find((node) => ["WebPage", "ContactPage", "CollectionPage"].includes(node["@type"]));
     for (const error of pageDateErrors(html, datedEntity, { requirePublication: isArticle }))
@@ -220,6 +227,12 @@ for (const page of pages) {
         const breadcrumbs = nodes.find((node) => node["@type"] === "BreadcrumbList");
         if (breadcrumbs?.itemListElement?.at(-1)?.item !== canonical)
             fail(page, "missing or mismatched breadcrumbs");
+        if (label(page).startsWith("help/")) {
+            helpPosts.push(canonical);
+            if (article?.["@type"] !== "Article") fail(page, "tutorial must use Article structured data");
+            if (breadcrumbs?.itemListElement?.[1]?.item !== "https://fameally.com/help/")
+                fail(page, "tutorial breadcrumb must link to Help");
+        }
         for (const [key, field] of [["article:published_time", "datePublished"], ["article:modified_time", "dateModified"]])
             if (content(html, key) !== article?.[field]) fail(page, "article sharing dates mismatch");
         if (label(page).startsWith("updates/")) {
@@ -243,13 +256,13 @@ for (const page of pages) {
     )
         fail(page, "missing app entity");
     if (
-        ["articles/index.html", "updates/index.html", "resources/index.html"].includes(
+        ["articles/index.html", "updates/index.html", "resources/index.html", "help/index.html"].includes(
             label(page),
         ) &&
         !nodes.some((node) => node["@type"] === "CollectionPage")
     )
         fail(page, "missing collection entity");
-    if (["updates/index.html", "resources/index.html"].includes(label(page))) {
+    if (["updates/index.html", "resources/index.html", "help/index.html"].includes(label(page))) {
         const collection = nodes.find((node) => node["@type"] === "CollectionPage");
         if (
             collection?.url !== canonical ||
@@ -261,13 +274,15 @@ for (const page of pages) {
         for (const [index, item] of items.entries()) {
             if (item.position !== index + 1) fail(page, "non-sequential collection positions");
             const path = new URL(item.url).pathname;
-            const expectedHref = path.startsWith("/updates/")
-                ? path.slice("/updates/".length)
+            const section = label(page).split("/")[0];
+            const expectedHref = path.startsWith("/" + section + "/")
+                ? path.slice(section.length + 2)
                 : ".." + path;
             if (!html.includes(`href="${expectedHref}"`))
                 fail(page, "collection item missing visible link");
         }
         if (label(page) === "updates/index.html") updateItems = items;
+        if (label(page) === "help/index.html") helpItems = items;
     }
     const app = nodes.find((node) => node["@type"] === "SoftwareApplication");
     if (
@@ -282,6 +297,12 @@ for (const page of pages) {
     )
         fail(page, "inconsistent application identity, publisher or installation links");
 }
+
+const helpIndex = join(root, "help/index.html");
+if (helpItems.length !== helpPosts.length ||
+    new Set(helpItems.map((item) => item.url)).size !== helpItems.length ||
+    helpItems.some((item) => !helpPosts.includes(item.url)))
+    fail(helpIndex, "help index must list every tutorial exactly once, without unpublished entries");
 
 const updateIndex = join(root, "updates/index.html");
 if (

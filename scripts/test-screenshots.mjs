@@ -24,9 +24,10 @@ async function checkPictures(page, colorScheme) {
     for (const viewer of await page.locator('[data-screenshot]').all()) {
         assert.equal(await viewer.locator('img').count(), 1);
         const img = viewer.locator('img');
+        const themeAware = await viewer.locator('source[media*="prefers-color-scheme"]').count() > 0;
         await img.scrollIntoViewIfNeeded();
-        await page.waitForFunction(({ element, dark }) => element.complete && element.naturalWidth > 0 && element.currentSrc.includes('-dark') === dark,
-            { element: await img.elementHandle(), dark: colorScheme === 'dark' });
+        await page.waitForFunction(({ element, dark, themeAware }) => element.complete && element.naturalWidth > 0 && (!themeAware || element.currentSrc.includes('-dark') === dark),
+            { element: await img.elementHandle(), dark: colorScheme === 'dark', themeAware });
         await img.evaluate((el) => el.decode());
     }
     for (const figure of await page.locator('.article-figure').all()) {
