@@ -87,15 +87,15 @@ IDs 1–20 retain the original recommendation numbers; L1–L5 identify the five
 | 10 | Fri 2026-11-06 | [How to Plan Meals Around Expiry Dates](#article-10) | Published | 2026-11-09 |
 | 6 | Mon 2026-11-09 | [How to Make a Monthly Family Meal Plan Without Starting From Scratch](#article-6) | Published | 2026-11-09 |
 | T1 | Wed 2026-11-11 | [Get started with Fameally: create your first meal plan and shopping list](#tutorial-t1) | Published | 2026-11-11 |
+| L1 | Fri 2026-11-13 (originally Wed 2026-11-11) | [Paprika vs Fameally: Recipe Manager or Weekly Household Planner?](#article-l1) | Published | 2026-11-17 |
+| 8 | Mon 2026-11-16 (originally Fri 2026-11-13) | [Meal Planning for Picky Eaters: A Flexible Family Approach](#article-8) | Published | 2026-11-17 |
 
 ### Active calendar
 
-The Christmas shopping checklist retains **20 November** and the Christmas leftovers guide retains **14 December**. The active calendar contains 16 articles and 17 tutorials, all **Planned**.
+The Christmas shopping checklist retains **20 November** and the Christmas leftovers guide retains **14 December**. The active calendar contains 14 articles and 17 tutorials, all **Planned**. L1 and article 8 were approved and published on **17 November 2026**, along with the related Paprika corrections and contextual links; the [local release record](output/review/overdue-20261117/REVIEW.md) contains the reviewed package and verification evidence.
 
 | ID | Original target date | Revised target date | Article or tutorial and planning brief | Status | Actual publication date |
 | --- | --- | --- | --- | --- | --- |
-| L1 | Wed 2026-11-11 | Fri 2026-11-13 | [Paprika vs Fameally: Recipe Manager or Weekly Household Planner?](#article-l1) | Planned | |
-| 8 | Fri 2026-11-13 | Mon 2026-11-16 | [Meal Planning for Picky Eaters: A Flexible Family Approach](#article-8) | Planned | |
 | T2 | — (new) | Wed 2026-11-18 | [Invite your household and share meals, plans and shopping lists in Fameally](#tutorial-t2) | Planned | |
 | 16 | Fri 2026-11-20 | Fri 2026-11-20 | [Christmas Food Shopping Checklist for UK Families](#article-16) | Planned | |
 | L2 | Mon 2026-11-16 | Mon 2026-11-23 | [Cozi vs Fameally: Family Organiser or Meal Planning App?](#article-l2) | Planned | |
@@ -333,7 +333,8 @@ These requirements apply to **every T1–T18 brief**, including its prerequisite
 
 ### L1. Paprika vs Fameally: Recipe Manager or Weekly Household Planner?
 
-- **Proposed URL:** `https://fameally.com/articles/paprika-vs-fameally-recipe-manager-or-weekly-household-planner.html`
+- **Published:** 17 November 2026, after user review, with Paprika corrections in the two related app-comparison guides. The [local release record](output/review/overdue-20261117/REVIEW.md) contains the approved package, source checks and live verification. The comparison uses Paprika 4 documentation and does not claim a hands-on product test.
+- **Published URL:** [Paprika vs Fameally: Recipe Manager or Weekly Household Planner?](https://fameally.com/articles/paprika-vs-fameally-recipe-manager-or-weekly-household-planner.html)
 - **Reader need:** Decide which product better fits recipe collecting, cooking and household meal coordination.
 - **Distinct angle:** Compare the complete workflow using the same household week. Avoid assuming either app lacks planning, sharing or shopping tools based on its positioning.
 - **Section outline:** Define the household's main task; compare recipe capture and cooking; compare meal planning and shopping; check sharing, platforms and costs; run a practical choice test.
@@ -346,7 +347,8 @@ These requirements apply to **every T1–T18 brief**, including its prerequisite
 
 ### 8. Meal Planning for Picky Eaters: A Flexible Family Approach
 
-- **Proposed URL:** `https://fameally.com/articles/meal-planning-for-picky-eaters-a-flexible-family-approach.html`
+- **Published:** 17 November 2026, after user review and checks against NHS and FSA guidance, with a contextual incoming link from the repeatable family meal-planning guide. See the [local release record](output/review/overdue-20261117/REVIEW.md) for the approved package and live verification.
+- **Published URL:** [Meal Planning for Picky Eaters: A Flexible Family Approach](https://fameally.com/articles/meal-planning-for-picky-eaters-a-flexible-family-approach.html)
 - **Reader need:** Plan shared family dinners that accommodate familiar-food preferences without routinely preparing completely separate meals.
 - **Distinct angle:** Flexible components and predictable meal choices for picky eating. Keep broader dietary requirements, allergies and differing schedules in 14.
 - **Section outline:** Identify familiar meals and components; plan a shared base with flexible sides; offer manageable household choices; account for portions and leftovers; review what was practical to repeat.
