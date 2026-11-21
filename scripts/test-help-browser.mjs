@@ -3,11 +3,14 @@ import assert from "node:assert/strict";
 import { createRequire } from "node:module";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { publicPages } from "./site-files.mjs";
 const require = createRequire(import.meta.url);
 const { chromium } = require("playwright-core");
 const AxeBuilder = require("@axe-core/playwright").default;
 const base = process.env.SITE_URL ?? "http://127.0.0.1:8767";
-const output = resolve(import.meta.dirname, "../output/review/help-t1/browser");
+const output = process.env.HELP_QA_OUTPUT ?? resolve(import.meta.dirname, "../output/review/help-library/browser");
+const tutorials = publicPages(resolve(import.meta.dirname, "..")).filter((file) => file.startsWith("help/") && file !== "help/index.html");
+const helpPages = [["help/", "https://fameally.com/help/"], ...tutorials.map((file) => [file, "https://fameally.com/" + file])];
 mkdirSync(output, { recursive: true });
 const browser = await chromium.launch({ channel: process.env.BROWSER_CHANNEL ?? "msedge", headless: true });
 const errors = [], audits = [];
@@ -22,10 +25,7 @@ try {
             });
             for (const width of [360, 390, 768, 1440]) {
                 await page.setViewportSize({ width, height: 1000 });
-                for (const [file, canonical] of [
-                    ["help/", "https://fameally.com/help/"],
-                    ["help/getting-started.html", "https://fameally.com/help/getting-started.html"],
-                ]) {
+                for (const [file, canonical] of helpPages) {
                     await page.goto(`${base}/${file}`);
                     assert.equal(await page.locator('link[rel="canonical"]').getAttribute("href"), canonical);
                     assert.equal(await page.locator("h1").count(), 1);
@@ -41,8 +41,8 @@ try {
                     if (file === "help/") {
                         const data = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
                         const collection = data["@graph"].find((node) => node["@type"] === "CollectionPage");
-                        assert.deepEqual(collection.hasPart.itemListElement.map((item) => item.url),
-                            ["https://fameally.com/help/getting-started.html"]);
+                        assert.deepEqual(collection.hasPart.itemListElement.map((item) => item.url).sort(),
+                            tutorials.map((file) => "https://fameally.com/" + file).sort());
                         assert.ok(await page.getByRole("link", { name: "Contact support", exact: true }).first().isVisible());
                     }
                     if (javaScriptEnabled && [390, 1440].includes(width)) {
@@ -51,7 +51,7 @@ try {
                         audits.push({ file, width, colorScheme, violations });
                         assert.deepEqual(violations, [], `${file}: accessibility`);
                         await page.evaluate(() => window.scrollTo(0, 0));
-                        const name = file === "help/" ? "hub" : "getting-started";
+                        const name = file === "help/" ? "hub" : file.slice(5).replace(/\.html$/, "");
                         await page.screenshot({ path: `${output}/${name}-${width}-${colorScheme}.png`, fullPage: true });
                         await page.screenshot({ path: `${output}/${name}-${width}-${colorScheme}-viewport.png` });
                     }
@@ -61,6 +61,6 @@ try {
         }
     }
     assert.deepEqual(errors, []);
-    writeFileSync(`${output}/results.json`, JSON.stringify({ errors, audits, viewportChecks: 32 }, null, 2));
+    writeFileSync(`${output}/results.json`, JSON.stringify({ errors, audits, viewportChecks: helpPages.length * 16 }, null, 2));
     console.log("Passed Help checks at four widths in both themes, with and without JavaScript: canonical routes, current navigation, images, accessible content and populated hub.");
 } finally { await browser.close(); }
