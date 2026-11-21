@@ -97,7 +97,9 @@ The [Help hub](https://fameally.com/help/) and [getting-started tutorial](https:
 
 T1's two `screenshot-help-first-*` images are real captures from Fameally 1.9.77 on Android 14, taken on 9 November 2026 in a temporary emulator profile. They retain the app's purple first-run appearance in both website themes. Their responsive WebPs use the same 320/640/900 widths as other screenshots; do not fabricate a second app appearance. The screenshot checks distinguish these fixed-appearance pictures from existing theme-aware screenshot pairs. Raw captures, hashes and verification coverage are recorded under `output/review/help-t1/`.
 
-After changing a tutorial, run the same static, sharing, publication-boundary, IndexNow and browser checks listed above. Both Help pages are included in representative accessibility and no-JavaScript browser checks; tutorial sharing is tested with the other article pages. Use the local preview and review notes before a separately authorised push to `main`.
+The [household-sharing tutorial](https://fameally.com/help/invite-your-household.html) and the Help hub's Sharing group launched on **21 November 2026**. Its three `screenshot-help-family-*` scenes are real captures from Fameally 1.9.77 on Android 14 in the Pixel 8 emulator's existing demonstration profile. Delivery crops omit member email addresses and retain the app appearance in both website themes. The developer confirmed existing family-invitation testing; no new invitation was sent for this writing pass. Capture hashes, crops and scope are recorded under ignored `output/review/overdue-20261121/app-check/`, with the publication record under `publication/`.
+
+After changing a tutorial, run the same static, sharing, publication-boundary, IndexNow and browser checks listed above. All current Help pages are included in representative accessibility and no-JavaScript browser checks; tutorial sharing is tested with the other article pages. Use the local preview and review notes before a separately authorised push to `main`.
 
 ### Editorial release checks
 

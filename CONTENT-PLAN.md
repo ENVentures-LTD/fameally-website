@@ -89,15 +89,15 @@ IDs 1–20 retain the original recommendation numbers; L1–L5 identify the five
 | T1 | Wed 2026-11-11 | [Get started with Fameally: create your first meal plan and shopping list](#tutorial-t1) | Published | 2026-11-11 |
 | L1 | Fri 2026-11-13 (originally Wed 2026-11-11) | [Paprika vs Fameally: Recipe Manager or Weekly Household Planner?](#article-l1) | Published | 2026-11-17 |
 | 8 | Mon 2026-11-16 (originally Fri 2026-11-13) | [Meal Planning for Picky Eaters: A Flexible Family Approach](#article-8) | Published | 2026-11-17 |
+| T2 | Wed 2026-11-18 | [Invite your household and share meals, plans and shopping lists in Fameally](#tutorial-t2) | Published | 2026-11-21 |
+| 16 | Fri 2026-11-20 | [Christmas Food Shopping Checklist for UK Families](#article-16) | Published | 2026-11-21 |
 
 ### Active calendar
 
-The Christmas shopping checklist retains **20 November** and the Christmas leftovers guide retains **14 December**. The active calendar contains 14 articles and 17 tutorials, all **Planned**. L1 and article 8 were approved and published on **17 November 2026**, along with the related Paprika corrections and contextual links; the [local release record](output/review/overdue-20261117/REVIEW.md) contains the reviewed package and verification evidence.
+The active calendar contains **13 articles and 16 tutorials**, all **Planned**. Article 16 and T2 were approved and published on **21 November 2026**; their original targets of 20 and 18 November remain in the published records above. The Christmas leftovers guide retains **14 December**. No remaining target has been rescheduled. The [publication record](output/review/overdue-20261121/publication/RELEASE.md) contains the reviewed files, emulator provenance, release checks and live verification. L1 and article 8 remain published on **17 November 2026**, as recorded in their [earlier release evidence](output/review/overdue-20261117/REVIEW.md).
 
 | ID | Original target date | Revised target date | Article or tutorial and planning brief | Status | Actual publication date |
 | --- | --- | --- | --- | --- | --- |
-| T2 | — (new) | Wed 2026-11-18 | [Invite your household and share meals, plans and shopping lists in Fameally](#tutorial-t2) | Planned | |
-| 16 | Fri 2026-11-20 | Fri 2026-11-20 | [Christmas Food Shopping Checklist for UK Families](#article-16) | Planned | |
 | L2 | Mon 2026-11-16 | Mon 2026-11-23 | [Cozi vs Fameally: Family Organiser or Meal Planning App?](#article-l2) | Planned | |
 | T3 | — (new) | Wed 2026-11-25 | [Import a recipe from a website into Fameally](#tutorial-t3) | Planned | |
 | 11 | Wed 2026-11-18 | Fri 2026-11-27 | [Meal Planning for Couples: Share the Cooking and Shopping](#article-11) | Planned | |
@@ -397,6 +397,7 @@ These requirements apply to **every T1–T18 brief**, including its prerequisite
 - **Existing links:** [Remember household essentials](articles/the-easiest-way-to-stop-forgetting-regular-household-shopping-items.html); [Build a shopping list from planned meals](articles/how-to-turn-a-meal-plan-into-a-food-shopping-list.html).
 - **Published companion:** [9: master household list](articles/how-to-create-a-master-grocery-list-for-your-household.html).
 - **Planned companions:** [17: Christmas leftovers](#article-17); [15: serving sizes](#article-15).
+- **Publication record:** [Live Christmas checklist](https://fameally.com/articles/christmas-food-shopping-checklist-for-uk-families.html), published **21 November 2026** in [release commit 7211441](https://github.com/ENVentures-LTD/fameally-website/commit/7211441182a57c8f723d0cef1e7c073cfe1fd9c2). [Deployment and IndexNow](https://github.com/ENVentures-LTD/fameally-website/actions/runs/44947161318) succeeded. The [local publication record](output/review/overdue-20261121/publication/RELEASE.md) records the reviewed copy, checks and live verification; the excluded draft remains an archive of the review.
 
 <a id="article-12"></a>
 
@@ -577,9 +578,10 @@ The following briefs cover published and planned app tutorials. All titles expli
 - **Outcome:** An owner sends an invitation, the intended person accepts it and both can find the shared content.
 - **Prerequisites:** Verify current Family access, owner permissions, membership limits, account requirements and released versions on both demonstration devices.
 - **Section outline:** Check eligibility; send an invitation; accept with the intended account; find the shared workspace; check a harmless list change; resolve missing invitations or content; contact support if needed.
-- **Screenshots required:** Owner invitation, invitee acceptance and the shared workspace, using demonstration email addresses.
+- **Screenshots for the current review (revised 21 November 2026):** Owner invitation controls, the existing demonstration family plan and the missing-email message. Keep acceptance text-led; the developer confirmed existing invitation testing and explicitly declined a repeated functional invitation test for this writing pass. Use genuine captures and keep account email addresses out of delivery crops.
 - **Research and feature checks:** Record version, platform and date for both roles. Verify acceptance, permissions, sync and connectivity behaviour; do not promise immediate updates under every condition. The broader cross-platform article retains its own purpose.
 - **Related content:** [Share between iPhone and Android](articles/how-to-share-a-shopping-list-between-iphone-and-android.html); [11: planning for couples](#article-11); [T13: share meal or plan content](#tutorial-t13); [Contact support](support.html).
+- **Publication record:** [Live household-sharing tutorial](https://fameally.com/help/invite-your-household.html), published **21 November 2026** in [release commit 7211441](https://github.com/ENVentures-LTD/fameally-website/commit/7211441182a57c8f723d0cef1e7c073cfe1fd9c2). [Deployment and IndexNow](https://github.com/ENVentures-LTD/fameally-website/actions/runs/44947161318) succeeded. Owner controls and three real captures were checked in Fameally 1.9.77 on Android 14; the developer confirmed existing functional invitation testing. The Help hub now includes its Sharing group and matching ItemList; metadata, sitemap, responsive images, sharing, accessibility and live content passed. See the [publication record](output/review/overdue-20261121/publication/RELEASE.md) and excluded review evidence.
 
 <a id="tutorial-t3"></a>
 
@@ -810,6 +812,6 @@ These checks govern the first release and later tutorial additions. The local T1
 
 Official social URLs have not been supplied. Do not guess handles, render empty Follow sections, add placeholder links or load social widgets. Once confirmed, add direct links to Fameally's footer, Updates index and ENVentures' Fameally page; add those same URLs to the app entity's `sameAs`. Do not add them to ENVentures' global footer or company entity. Check profile backlinks, product naming and store descriptions separately; account edits require their own authorization.
 
-The help hub, T1 and shared navigation are prepared for local review. The first public release and the remaining 17 tutorials remain separate work, following the release checks in [Section purposes](#section-purposes). The cloud reminder extension through **1 February 2027**, with the Christmas Day and New Year's Day pauses, also requires a separate schedule change; keep the desktop reminder paused.
+The Help hub, T1 and shared navigation launched on **11 November 2026**; T2 and its Sharing group launched on **21 November 2026**. The remaining **16 tutorials** are separate work, following the release checks in [Section purposes](#section-purposes). The cloud reminder extension through **1 February 2027**, with the Christmas Day and New Year's Day pauses, also requires a separate schedule change; keep the desktop reminder paused.
 
 The roadmap itself remains excluded from the public build. Its original documentation-only update did not author or publish pages; the later, separately requested help-library implementation has prepared the source, navigation, sitemap, assets and checks for local review. Article and remaining tutorial production, resource downloads, automations and publication require their own instruction. ENVentures news remains separate work.
