@@ -91,14 +91,14 @@ IDs 1–20 retain the original recommendation numbers; L1–L5 identify the five
 | 8 | Mon 2026-11-16 (originally Fri 2026-11-13) | [Meal Planning for Picky Eaters: A Flexible Family Approach](#article-8) | Published | 2026-11-17 |
 | T2 | Wed 2026-11-18 | [Invite your household and share meals, plans and shopping lists in Fameally](#tutorial-t2) | Published | 2026-11-21 |
 | 16 | Fri 2026-11-20 | [Christmas Food Shopping Checklist for UK Families](#article-16) | Published | 2026-11-21 |
+| L2 | Mon 2026-11-23 (originally Mon 2026-11-16) | [Cozi vs Fameally: Family Organiser or Meal Planning App?](#article-l2) | Published | 2026-11-23 |
 
 ### Active calendar
 
-The active calendar contains **13 articles and 16 tutorials**, all **Planned**. Article 16 and T2 were approved and published on **21 November 2026**; their original targets of 20 and 18 November remain in the published records above. The Christmas leftovers guide retains **14 December**. No remaining target has been rescheduled. The [publication record](output/review/overdue-20261121/publication/RELEASE.md) contains the reviewed files, emulator provenance, release checks and live verification. L1 and article 8 remain published on **17 November 2026**, as recorded in their [earlier release evidence](output/review/overdue-20261117/REVIEW.md).
+The active calendar contains **12 articles and 16 tutorials**, all **Planned**. L2 was approved and published on **23 November 2026**; its original 16 November and revised 23 November targets remain in the published records above. Its [publication record](output/review/cozi-20261123/RELEASE.md) contains the reviewed files, checks, deployment and live verification. Article 16 and T2 were approved and published on **21 November 2026**; their original targets of 20 and 18 November remain in the published records above. The Christmas leftovers guide retains **14 December**. No remaining target has been rescheduled. The [21 November publication record](output/review/overdue-20261121/publication/RELEASE.md) contains the reviewed files, emulator provenance, release checks and live verification. L1 and article 8 remain published on **17 November 2026**, as recorded in their [earlier release evidence](output/review/overdue-20261117/REVIEW.md).
 
 | ID | Original target date | Revised target date | Article or tutorial and planning brief | Status | Actual publication date |
 | --- | --- | --- | --- | --- | --- |
-| L2 | Mon 2026-11-16 | Mon 2026-11-23 | [Cozi vs Fameally: Family Organiser or Meal Planning App?](#article-l2) | Planned | |
 | T3 | — (new) | Wed 2026-11-25 | [Import a recipe from a website into Fameally](#tutorial-t3) | Planned | |
 | 11 | Wed 2026-11-18 | Fri 2026-11-27 | [Meal Planning for Couples: Share the Cooking and Shopping](#article-11) | Planned | |
 | 12 | Mon 2026-11-23 | Mon 2026-11-30 | [How to Save and Organise Your Favourite Family Recipes](#article-12) | Planned | |
@@ -369,6 +369,7 @@ These requirements apply to **every T1–T18 brief**, including its prerequisite
 - **Research and feature checks:** Check current official Cozi feature, plan and regional-availability information, then verify Fameally's released behaviour. Avoid unsupported claims about calendar integration, responsibility assignment, sharing limits or competitor omissions.
 - **Existing links:** [Assess shared family meal planning](articles/shared-meal-planning-app-for-families.html); [Compare family meal-planning apps](articles/best-meal-planning-apps-for-uk-families.html).
 - **Planned companions:** [L5: choose a tool category](#article-l5); [11: share cooking and shopping](#article-11); [L1: compare recipe management](#article-l1).
+- **Publication record:** [Live Cozi comparison](https://fameally.com/articles/cozi-vs-fameally-family-organiser-or-meal-planning-app.html), published **23 November 2026** in [release commit 2af9bce](https://github.com/ENVentures-LTD/fameally-website/commit/2af9bce8b94249c139c5b6b45004a86e238bcc3d). [Deployment and IndexNow](https://github.com/ENVentures-LTD/fameally-website/actions/runs/45293257892) succeeded; IndexNow accepted three changed URLs. Official sources were rechecked on 23 November; static validation, all 34 regression checks, ten browser scenarios, four accessibility audits and both sharing checks passed. Fourteen live routes were verified. The comparison uses official documentation, with no new Cozi hands-on or UK checkout test. See the [publication record](output/review/cozi-20261123/RELEASE.md); the excluded draft and review evidence remain archived.
 
 <a id="article-11"></a>
 
